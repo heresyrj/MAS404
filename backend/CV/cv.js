@@ -1,6 +1,6 @@
 let Clarifai = require("clarifai");
-let Account = require("./account.json");
-let Categories = require("./categories.json");
+let Account = require("./meta/account.json");
+let Categories = require("./meta/categories.json");
 let app = new Clarifai.App(`${Account.clientId}`, `${Account.clientSecret}`);
 
 // predict the contents of an image by passing in a path (url)
