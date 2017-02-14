@@ -3,8 +3,6 @@ let Account = require("./meta/account.json");
 let Categories = require("./meta/categories.json");
 let app = new Clarifai.App(`${Account.clientId}`, `${Account.clientSecret}`);
 
-// predict the contents of an image by passing in a path (url)
-
 let categoryfilter = name => {
   for (let category in Categories) {
     return Categories[category].includes(name);
@@ -21,7 +19,7 @@ module.exports.getPrediction = url => {
         let rawPredicts = concepts
           .map(item => obj = { name: item.name, value: item.value })
           .filter(item => categoryfilter(item.name));
-
+        
         resolve(rawPredicts);
         //reject
       })
