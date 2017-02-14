@@ -1,5 +1,3 @@
-let fs = require("fs")
-
 const storage = require('@google-cloud/storage')
 
 // Global Ref Basis
