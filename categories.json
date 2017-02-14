@@ -1,0 +1,8 @@
+{
+    "fruit" : [
+        "banana", "apple", "pineapple", "lemon", "grape", "pear", "strawberry", "watermelon"
+    ],
+    "vegetable" : [
+        "cucumber"
+    ]
+}
