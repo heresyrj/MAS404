@@ -5,10 +5,10 @@
   "repository": "https://github.com/ruanjianusa/MAS404.git",
   "author": "Jian Ruan <ruanjianusa@gmail.com>",
   "license": "BSD-2-Clause",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
-    "clarifai": "^2.1.3-dev"
+    "clarifai": "^2.1.3-dev",
+    "google-cloud": "^0.47.0"
   },
   "devDependencies": {}
 }

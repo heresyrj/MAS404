@@ -7,10 +7,13 @@ let gcs = storage({
 });
 // Reference an existing bucket.
 let bucket = gcs.bucket('mas404-7d518.appspot.com')
+bucket.makePublic
 
-module.exports.loadImage = (url) => {
+let loadImage = (url) => {
     return new Promise( (resolve, reject) => { 
         bucket.upload(url, (err, file) => {
+            let publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`
+            console.log("composed url:"+ publicUrl)
             if (!err) resolve([true,file])
             else reject(err)
         });
