@@ -18,14 +18,17 @@ let retireveImagesMeta = () => {
   return new Promise((resolve, reject) => {
     bucket
       .getFiles()
-      .then(files => {
+      .then(data => {
+        let files = data[0];
         // console.log(files[0][0].name)
-        let filtered = files.map(data => {
-          let meta = data[0].metadata;
+        let filtered = files.map(file => {
+          let meta = file.metadata;
           return obj = {
             name: meta.name,
-            time: meta.timeCreated,
-            link: meta.selfLink
+            time: new Date(meta.timeCreated),
+            link: (
+              `https://storage.googleapis.com/mas404-7d518.appspot.com/${meta.name}`
+            )
           };
         });
         resolve(filtered);
@@ -34,14 +37,25 @@ let retireveImagesMeta = () => {
   });
 };
 
+let getMostRecent = () => {
+  return new Promise((resolve, reject) => 
+    retireveImagesMeta().then(imgs => {
+      let sorted = imgs.sort((a, b) => {
+        return b.time.getTime() - a.time.getTime();
+      });
+      resolve(sorted[0])
+    })).catch(err => console.log("err in getMostRecent"))
+};
+
 let categoryfilter = name => {
   for (let category in Categories) {
     return Categories[category].includes(name);
   }
 };
 
+//TODO:  next promises of getMostRecent and getPrediction to use the url of mostRecent
 module.exports.getPrediction = url => {
-
+  
   return new Promise((resolve, reject) => {
     //resolve
     app.models

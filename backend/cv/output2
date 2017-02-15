@@ -1,8 +1,0 @@
-object
-[ { name: 'banana', value: 0.99915946 },
-  { name: 'apple', value: 0.99629045 },
-  { name: 'lemon', value: 0.995738 },
-  { name: 'pineapple', value: 0.9522588 },
-  { name: 'grape', value: 0.9333857 },
-  { name: 'strawberry', value: 0.90965974 },
-  { name: 'pear', value: 0.6077178 } ]

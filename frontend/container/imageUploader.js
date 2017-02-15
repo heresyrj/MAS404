@@ -12,12 +12,12 @@ bucket.makePublic
 let loadImage = (url) => {
     return new Promise( (resolve, reject) => { 
         bucket.upload(url, (err, file) => {
-            let publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`
-            console.log("composed url:"+ publicUrl)
             if (!err) resolve([true,file])
             else reject(err)
+            let publicUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`
+            console.log("composed url:"+ publicUrl)
         });
     })
 }
 
-loadImage('./fruits.jpg').then(res => { console.log(res[0])} )
+loadImage('./person.jpg').then(res => { console.log(res[0])} )
