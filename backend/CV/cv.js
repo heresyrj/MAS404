@@ -38,7 +38,7 @@ let retireveImagesMeta = () => {
 };
 
 let getMostRecent = () => {
-  return new Promise((resolve, reject) => 
+  return new Promise((resolve, reject) =>
     retireveImagesMeta().then(imgs => {
       let sorted = imgs.sort((a, b) => {
         return b.time.getTime() - a.time.getTime();
@@ -54,21 +54,30 @@ let categoryfilter = name => {
 };
 
 //TODO:  next promises of getMostRecent and getPrediction to use the url of mostRecent
-module.exports.getPrediction = url => {
-  
-  return new Promise((resolve, reject) => {
-    //resolve
-    app.models
-      .predict(Clarifai.FOOD_MODEL, url)
-      .then(response => {
-        let concepts = response.outputs[0].data.concepts;
-        let rawPredicts = concepts
-          .map(item => obj = { name: item.name, value: item.value })
-          .filter(item => categoryfilter(item.name));
+module.exports.getPrediction = () => {
 
-        resolve(rawPredicts);
-        //reject
-      })
-      .catch(err => reject("err in getPrediction"));
-  });
+  getMostRecent().then(url=> {
+    console.log(url.link)
+    return new Promise((resolve, reject) => {
+      //resolve
+      app.models
+        .predict(Clarifai.FOOD_MODEL, url.link)
+        .then(response => {
+          let concepts = response.outputs[0].data.concepts;
+          // console.log(concepts)
+          let rawPredicts = concepts
+            .map(item => obj = {
+              name: item.name,
+              value: item.value
+            })
+            .filter(item => categoryfilter(item.name));
+
+            console.log(rawPredicts)
+          resolve(rawPredicts);
+          //reject
+        })
+        .catch(err => reject("err in getPrediction"));
+    });
+  })
+
 };
