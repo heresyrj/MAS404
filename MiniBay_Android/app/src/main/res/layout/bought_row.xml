@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/checked_checkbox"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:id="@+id/bought_item"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="Medium Text"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:id="@+id/bought_date"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="Feb 17"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="#9FA5A7"
+            android:fontFamily="sans-serif" />
+    </LinearLayout>
+
+</LinearLayout>

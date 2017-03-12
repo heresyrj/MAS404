@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">MiniBay_Test</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string-array name="buy_items">
+        <item>Apple</item>
+        <item>Banana</item>
+        <item>Broccoli</item>
+        <item>Carrot</item>
+        <item>Eggplant</item>
+
+
+    </string-array>
+
+    <string-array name="bought_items">
+        <item>Eggpalnt</item>
+        <item>Egg</item>
+        <item>Banana</item>
+        <item>Broccoli</item>
+    </string-array>
+    
+    <string-array name="bought_date">
+        <item>Feb 17, 2017</item>
+        <item>Feb 17, 2017</item>
+        <item>Feb 17, 2017</item>
+        <item>Feb 17, 2017</item>
+    </string-array>
+
+
+
+</resources>
