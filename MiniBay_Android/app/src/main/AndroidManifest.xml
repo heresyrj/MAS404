@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Inventory_Detail"
+            android:theme="@style/CustomBar">
+        </activity>
+
+        <activity android:name=".PictureFromFridge"></activity>
     </application>
 
 </manifest>

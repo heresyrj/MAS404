@@ -3,4 +3,7 @@
     <color name="colorPrimary">#30b26a</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="arrow_color">#FFFFFF</color>
+    <color name="orange">#FFA500</color>
+    <color name="grey">#999999</color>
 </resources>

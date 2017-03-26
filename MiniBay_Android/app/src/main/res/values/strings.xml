@@ -10,7 +10,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
     <string-array name="buy_items">
         <item>Apple</item>
         <item>Banana</item>
@@ -27,7 +26,7 @@
         <item>Banana</item>
         <item>Broccoli</item>
     </string-array>
-    
+
     <string-array name="bought_date">
         <item>Feb 17, 2017</item>
         <item>Feb 17, 2017</item>
@@ -35,6 +34,19 @@
         <item>Feb 17, 2017</item>
     </string-array>
 
+    <string-array name="inventory_items">
+        <item>Carrot</item>
+        <item>Broccoli</item>
+        <item>Eggplant</item>
+        <item>Apple</item>
+    </string-array>
+
+    <string-array name="inventory_items_detail">
+        <item>3 Days left</item>
+        <item>5 Days left</item>
+        <item>5 Days left</item>
+        <item>7 Days left</item>
+    </string-array>
 
 
 </resources>
