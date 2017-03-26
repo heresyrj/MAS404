@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "789053081196",
-    "firebase_url": "https://minibaybackend.firebaseio.com",
-    "project_id": "minibaybackend",
-    "storage_bucket": "minibaybackend.appspot.com"
+    "project_number": "908793150078",
+    "firebase_url": "https://mas404-7d518.firebaseio.com",
+    "project_id": "mas404-7d518",
+    "storage_bucket": "mas404-7d518.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:789053081196:android:cc7e29977601006c",
+        "mobilesdk_app_id": "1:908793150078:android:cc7e29977601006c",
         "android_client_info": {
           "package_name": "com.example.yrlin.minibay_test"
         }
       },
       "oauth_client": [
         {
-          "client_id": "789053081196-q4orngu4k0tf8t3jt9ptgs7084555r79.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.yrlin.minibay_test",
-            "certificate_hash": "a25da909663df2449cdf1ddd25cbbc67a3cc5893"
-          }
-        },
-        {
-          "client_id": "789053081196-cdup9m0mq98sl1m0hci6plohcjlo0k55.apps.googleusercontent.com",
+          "client_id": "908793150078-v7lp1fu9fo6lpfo3vb92kakhi9kig1sm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDJjBEdXX2leGzfz7Ip9rbYDYAvRlddnVU"
+          "current_key": "AIzaSyCTuCRzvQCLfEk0VLAaEAy26nFWhSxXfn0"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "789053081196-cdup9m0mq98sl1m0hci6plohcjlo0k55.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

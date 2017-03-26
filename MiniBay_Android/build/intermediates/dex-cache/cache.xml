@@ -2,238 +2,238 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="888983f51cf34f57a93ff16832552f2f15937212">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-10.2.1_a48492dfe317379c057e8fcf9b344a23611eac04.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-10.2.1_961edd4919093e0b6a8c4408e0995f5dcdee169f.jar" />
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.2.1_961edd4919093e0b6a8c4408e0995f5dcdee169f/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.1/jars/classes.jar"
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.1_dc1bc0d68bfe0eb4aac9b9419fbf9ea7ebb0b606.jar" />
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.1_a48492dfe317379c057e8fcf9b344a23611eac04/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="214abe7e3e32f4896f8d76ebe932ea1d79455bd4">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/instant-run_656d7a5b63543caf53c2a06cbe32215e66c28244.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-10.2.1_b143ee281772055417833bc8f0b55c4de26e703b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.2.0_071619534faf58009494589d602d3de93bc44db7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.2.0_e9b4ffe6f4c71c16fb4aa7a0eb4dbd18c4e659b6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5a8e9b4c99e348b98258d82fedc691a8923e62c6">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_6975264feabe96af3e5cb510dfe5c3235ac27fab.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.2.0_ae5e1d10e76bc7cc9ad2234c2b0a13bb2b958b93.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-10.2.1_5a0be2fb475b6732b761c5b521f7048f19210405.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-10.2.1_5a1ec1f008d4d78e1a848dc5757b9c506ba3372d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.2.0_9d0f5afb29f3cd4d695a5876c45270326fd5623c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.2.0_1d81cd766ee239cca5f7904a06c39b9166743281.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.2.0_931ee6721e58f93819a4b63456af80fbf337a64a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/transition/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e51c2f662bb72419632af5192553c37e33890a99">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-transition-25.2.0_01eb0f6c20022c1a3c1d5f9b4c23af90310df1e1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/design/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-design-25.2.0_e2fee8cfd8df45612b6ec08a145e9a9e3476b713.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-crash-10.2.1_3640fc77cb7c96b32bd91d5e16f41fa2a8bbe936.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.2.0_03cb0a94f045558d786360c1a5c74b69761d6276.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.2.0_6ae2be6a5d96da6e834b8c5341bf6b5b81f2ac05.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.2.0_bb6168d7f94dc0b6e779f3bbde4f8a00c371376b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.1_ba5b9c3d98380d56cc9ae0bd37932e62cbfb6e32.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-10.2.1_383b1fab5ea8910b916d7b1ac056b00d369d9086.jar" />
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.1_383b1fab5ea8910b916d7b1ac056b00d369d9086/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/jars/classes.jar"
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-10.2.1_5e83403c62e88054c57f191896a660d6a87ad716.jar" />
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.1_dc1bc0d68bfe0eb4aac9b9419fbf9ea7ebb0b606/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/yrlin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_83a1ff98b1809ad5ba3230c0f7a23f1d3dca8380.jar" />
+        sha1="43982da798b922fd65cbdcdbce223e56831914c6">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_656d7a5b63543caf53c2a06cbe32215e66c28244/classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.2.0_071619534faf58009494589d602d3de93bc44db7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.2.0_e9b4ffe6f4c71c16fb4aa7a0eb4dbd18c4e659b6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.2.1_b143ee281772055417833bc8f0b55c4de26e703b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/design/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.2.0_e2fee8cfd8df45612b6ec08a145e9a9e3476b713/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="419a4f0050d8e116532ed18bf8556f122a047bc2">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6975264feabe96af3e5cb510dfe5c3235ac27fab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.2.0_931ee6721e58f93819a4b63456af80fbf337a64a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.1_5a0be2fb475b6732b761c5b521f7048f19210405/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.2.1_5a1ec1f008d4d78e1a848dc5757b9c506ba3372d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.2.0_ae5e1d10e76bc7cc9ad2234c2b0a13bb2b958b93/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/transition/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.2.0_01eb0f6c20022c1a3c1d5f9b4c23af90310df1e1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-10.2.1_3640fc77cb7c96b32bd91d5e16f41fa2a8bbe936/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.2.0_9d0f5afb29f3cd4d695a5876c45270326fd5623c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.2.0_bb6168d7f94dc0b6e779f3bbde4f8a00c371376b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.2.1_ba5b9c3d98380d56cc9ae0bd37932e62cbfb6e32/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.2.0_6ae2be6a5d96da6e834b8c5341bf6b5b81f2ac05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.2.0_03cb0a94f045558d786360c1a5c74b69761d6276/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.1_ceadf4fae9b8a7350ca6821d74f5b553583633d7.jar" />
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.2.1_ceadf4fae9b8a7350ca6821d74f5b553583633d7/classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.2.0_1d81cd766ee239cca5f7904a06c39b9166743281/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.1_5e83403c62e88054c57f191896a660d6a87ad716/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="152de8da301561dcb0946471697a420d8f7a68c5">
-        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.2.0_e4edcba373bdac591d64b5cf9aa79daba7bca0b4.jar" />
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.2.0_e4edcba373bdac591d64b5cf9aa79daba7bca0b4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yrlin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.2.0_83a1ff98b1809ad5ba3230c0f7a23f1d3dca8380/classes.dex" />
     </item>
 
 </items>
