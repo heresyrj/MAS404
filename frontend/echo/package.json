@@ -1,0 +1,10 @@
+{
+  "name": "myFactSkill-5d9f4eeb-8366-4748-968e-1d0a40f6aef1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "^1.0.7",
+    "firebase": "^3.7.3"
+  }
+}
