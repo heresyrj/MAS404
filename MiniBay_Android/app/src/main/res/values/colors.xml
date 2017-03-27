@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#30b26a</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#4A4A4A</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="arrow_color">#FFFFFF</color>
     <color name="orange">#FFA500</color>
     <color name="grey">#999999</color>
+    <color name="bayInfo">#CDD2D5</color>
+    <color name="bayWarning">#FFA500</color>
+    <color name="bayError">#FF2600</color>
+    <color name="bayDivier">#F1F3F2</color>
 </resources>

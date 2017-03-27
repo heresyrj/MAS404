@@ -172,7 +172,12 @@ public class Inventory_Instock extends Fragment {
             TextView detailTv = (TextView) convertView.findViewById(R.id.inventory_item_detail);
             ImageView img = (ImageView) convertView.findViewById(R.id.inventory_icon);
 
+//            String detailDays = details.get(position).replace(" Days left", "");
             detailTv.setText(details.get(position));
+//            if(Integer.parseInt(detailDays) <= 3){
+//                Log.v("aaa", details.get(position));
+//                detailTv.setTextAppearance(parent.getContext(), R.style.inventoryRowItemWarningDays);
+//            }
             nameTv.setText(myTitles.get(position));
             img.setImageResource(imgs.get(position));
             return convertView;
