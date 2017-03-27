@@ -161,6 +161,8 @@ public class Inventory_Instock extends Fragment {
             this.myTitles = titles;
         }
 
+
+
         @NonNull
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -172,12 +174,19 @@ public class Inventory_Instock extends Fragment {
             TextView detailTv = (TextView) convertView.findViewById(R.id.inventory_item_detail);
             ImageView img = (ImageView) convertView.findViewById(R.id.inventory_icon);
 
-//            String detailDays = details.get(position).replace(" Days left", "");
+            String detailDays = details.get(position).replace(" Days left", "");
+            Log.v(myTitles.get(position)+"在外面", details.get(position));
             detailTv.setText(details.get(position));
-//            if(Integer.parseInt(detailDays) <= 3){
-//                Log.v("aaa", details.get(position));
-//                detailTv.setTextAppearance(parent.getContext(), R.style.inventoryRowItemWarningDays);
+            if(Integer.parseInt(detailDays) <= 3){
+                Log.v(myTitles.get(position)+"进去了",Integer.parseInt(detailDays)+"");
+               detailTv.setTextAppearance(getContext(), R.style.inventoryRowItemWarningDays);
+            } else {
+                detailTv.setTextAppearance(getContext(), R.style.inventoryRowItemDays);
+            }
+//            if(position < 3) {
+//                detailTv.setTextAppearance(getContext(), R.style.inventoryRowItemDays);
 //            }
+
             nameTv.setText(myTitles.get(position));
             img.setImageResource(imgs.get(position));
             return convertView;

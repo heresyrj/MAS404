@@ -2,22 +2,355 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/cherylwang/Documents/2017Spring/MAS404/MiniBay_Android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/11c20dba7b3590b9d9bc7c3f836c35c87ff8c455/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="/Users/cherylwang/Documents/2017Spring/MAS404/MiniBay_Android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_b25396356711e3808db2aa02e19c2b9b864f70bc/classes.dex" />
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_870c752ade3bc57cb4b87aba3843cc4fada9ffbf.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/cherylwang/Documents/2017Spring/MAS404/MiniBay_Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        is-multidex="false"
+        jar="/Users/yrlin/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="2bb74edc95f6ec8b5aad28ba8232b0e76ba31984">
-        <dex dex="/Users/cherylwang/Documents/2017Spring/MAS404/MiniBay_Android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_dce79f74fa33d9f1919d2f24de66f884cb6e527a/classes.dex" />
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-beta4_b6131e16222566e60deeac8e0383a429053edac9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/5a97a2c213b683616c4caa212b5b4035065f4626/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_6b1115ed42759ddf4197fc0f85877fdd8f988b88.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/26e93bf3274bdda8c1ccd35bd472cfdd114d4077/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_a8c44e9225731d2138dc51744fb7fdb1b2022f1b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/4d4a380161cb53271073b35127195ca2e4317c98/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_d8a0291f7b0a4a5f186fe0ccd2c939d2acea13ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/d8439085e9036d928442d8a0cf5e8cde3c4bc966/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_76cb21d9c3014fd1cfc31c7406d78cc9939708d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/6b1a841984a688c53a716b66f58b0b6ab2ce60e8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_131e7287eb9417b3c1486346247132c67c4a2f57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/855293afa8700dee3a443a0c11b36bb4162c86f0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_f25459af5b17778fcc2c35115b2c96c782c3ed95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/6b1a841984a688c53a716b66f58b0b6ab2ce60e8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_131e7287eb9417b3c1486346247132c67c4a2f57.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/25601be364f665a467584a045961b92174930d32/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_349c6fc134c1f082df84ab95c41657c60c6a5787.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/4294790b1552fcc8cb25b61e709d51029a5867e9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_c8150e687a56393bace761734faa6c2c5dd4cdd2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/1e75aefba671fd56c3bb76b57159d6c27db069ed/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_57e864d28e4b68b0b6399a3a73628170fe22eee7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/7e1e1f9907c07e848d569da99e1b620619e530a2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_552e0de9df8f60e13ab54f3b90321cf104da3ba5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/a28d710dad9001e3f33a84a82917b5fb65c940ca/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_86820e3d171e67bc919fe4b6fe775114f2f1d31d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/5a2a6f09cac19c0d8098b45ca3df8452b9e80dd8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_0be8cbac08e21d0a69c06003399471605cfa9899.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/257e861b6232bcf8f5451eb5dd59af89f17152be/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_15b763f038f339f4738b83307bb812ad2c1b1598.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/7e1e1f9907c07e848d569da99e1b620619e530a2/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_552e0de9df8f60e13ab54f3b90321cf104da3ba5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/65710d4aea1bed57d061b62dc826b7111a81f63f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_fbe680d62f2fb77a438c2b87f0d5ca45512ffb9d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/258e4a9c374a264240ba5c4f4c0fb6a435f07b24/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_dc32bd6dc6cd794a22d7df34c2d7af75d2be1a35.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/65710d4aea1bed57d061b62dc826b7111a81f63f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_fbe680d62f2fb77a438c2b87f0d5ca45512ffb9d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/0a2c5feac2260ba58e01eb362993326a281d7998/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_293278f198aca0ff7c28bf641cb9cb899b77538e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/5a97a2c213b683616c4caa212b5b4035065f4626/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_6b1115ed42759ddf4197fc0f85877fdd8f988b88.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/4f00f5798ee1d0220c476d570b6de9aa2528d874/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_b6a49257fd4bd6fd410b6f4f7776094c1abddde1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/0a2c5feac2260ba58e01eb362993326a281d7998/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_293278f198aca0ff7c28bf641cb9cb899b77538e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/5a2a6f09cac19c0d8098b45ca3df8452b9e80dd8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_0be8cbac08e21d0a69c06003399471605cfa9899.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/a28d710dad9001e3f33a84a82917b5fb65c940ca/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_86820e3d171e67bc919fe4b6fe775114f2f1d31d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/257e861b6232bcf8f5451eb5dd59af89f17152be/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_15b763f038f339f4738b83307bb812ad2c1b1598.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/d8439085e9036d928442d8a0cf5e8cde3c4bc966/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b2349ddfe04831042844cbf055e5a072da37ddf8">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_76cb21d9c3014fd1cfc31c7406d78cc9939708d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/support-annotations-25.2.0_83a1ff98b1809ad5ba3230c0f7a23f1d3dca8380.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/855293afa8700dee3a443a0c11b36bb4162c86f0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b42a61cd5924f28e95894e859e6abe57847e2f3">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_f25459af5b17778fcc2c35115b2c96c782c3ed95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/108aab2c4892b47add1eef7b1c35f7d24855ea6c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_16fd3d1d4a49e997f193ebe90f384f658d851ab3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/2ad54f62db1fd7fffb48ab0e24c370160d4482f0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_3cc75051e8612a806a05785530f426191ad4a9a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/108aab2c4892b47add1eef7b1c35f7d24855ea6c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_16fd3d1d4a49e997f193ebe90f384f658d851ab3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-beta4_b6131e16222566e60deeac8e0383a429053edac9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/2ad54f62db1fd7fffb48ab0e24c370160d4482f0/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_3cc75051e8612a806a05785530f426191ad4a9a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/27ea18f09aeb4e05f4016107c678cdbc6fe5ee10/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_b48832132c2caffdcd9be0ced852e5a7610caaca.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/3a8a3b5469b071cbe2b25b230fad8baf649fbbbb/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_fc9c80f5a2394a9e3d02ecbfeaeeec57e7c1a0ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/538992c3b80c075332bec973f55e08b359715597/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_01908ebcbc4e926310cb6be43a23c68ed4e6eb4e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/yrlin/.android/build-cache/28beab119e456d4b17bf08c3116e3281a4a4f318/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Users/yrlin/2017Spring/Mobile App &amp; Service/MAS404/MiniBay_Android/app/build/intermediates/pre-dexed/debug/classes_db4051b3a3e3c27f7235757c252a60a77f6666eb.jar" />
     </item>
 
 </items>
