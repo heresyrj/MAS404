@@ -1,6 +1,7 @@
 package com.example.yrlin.minibay_test;
 
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -42,8 +43,8 @@ public class Inventory_Detail extends AppCompatActivity {
         send_reminder = (Button)findViewById(R.id.send_reminder);
         add_shopping = (Button)findViewById(R.id.add_to_shopping_list);
 
-        send_reminder.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        add_shopping.setBackgroundColor(getResources().getColor(R.color.orange));
+        send_reminder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_normal));
+        add_shopping.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_normal));
         setSupportActionBar(mToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -65,7 +66,7 @@ public class Inventory_Detail extends AppCompatActivity {
                 GenericTypeIndicator<Map<String, Object>> genericTypeIndicator = new GenericTypeIndicator<Map<String, Object>>() {};
                 Map<String, Object> map = dataSnapshot.getValue(genericTypeIndicator);
                 if (map.containsKey(bundle.get("itemName").toString())) {
-                    add_shopping.setBackgroundColor(getResources().getColor(R.color.grey));
+                    add_shopping.setBackground(getResources().getDrawable(R.drawable.button_shape_disabled));
                 }
             }
 
@@ -92,20 +93,21 @@ public class Inventory_Detail extends AppCompatActivity {
                 tempKey.setValue("You may need to buy some "+bundle.get("itemName").toString());
             }
         });
-        ColorDrawable buttonColor = (ColorDrawable)add_shopping.getBackground();
-        if (buttonColor.getColor() != getResources().getColor(R.color.grey)) {
-            add_shopping.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    DatabaseReference value = shoppingRef.child(bundle.get("itemName").toString());
-                    DatabaseReference isBought = value.child("isBought");
-                    isBought.setValue("No");
-                    DatabaseReference dateRef = value.child("Date");
-                    String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-                    dateRef.setValue(dateTime);
-                }
-            });
-        }
+        GradientDrawable buttonColor = (GradientDrawable) add_shopping.getBackground();
+//        ColorDrawable buttonColor = (ColorDrawable)add_shopping.getBackground();
+//        if (buttonColor.getColor() != getResources().getColor(R.color.grey)) {
+//            add_shopping.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    DatabaseReference value = shoppingRef.child(bundle.get("itemName").toString());
+//                    DatabaseReference isBought = value.child("isBought");
+//                    isBought.setValue("No");
+//                    DatabaseReference dateRef = value.child("Date");
+//                    String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+//                    dateRef.setValue(dateTime);
+//                }
+//            });
+//        }
 
 
     }
