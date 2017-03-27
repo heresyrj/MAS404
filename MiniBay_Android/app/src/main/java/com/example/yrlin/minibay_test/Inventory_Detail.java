@@ -101,7 +101,7 @@ public class Inventory_Detail extends AppCompatActivity {
                     DatabaseReference isBought = value.child("isBought");
                     isBought.setValue("No");
                     DatabaseReference dateRef = value.child("Date");
-                    String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
+                    String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
                     dateRef.setValue(dateTime);
                 }
             });

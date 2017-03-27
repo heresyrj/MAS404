@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="43982da798b922fd65cbdcdbce223e56831914c6">
+        sha1="5dd74aceb17a7c1fc97f2fe9d03250d97926ba10">
         <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_656d7a5b63543caf53c2a06cbe32215e66c28244/classes.dex" />
     </item>
     <item
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="419a4f0050d8e116532ed18bf8556f122a047bc2">
+        sha1="f76fa872916a6510caa4134e0c88e7f0b4c12e8e">
         <dex dex="/Users/yrlin/AndroidStudioProjects/MiniBay_Test/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6975264feabe96af3e5cb510dfe5c3235ac27fab/classes.dex" />
     </item>
     <item

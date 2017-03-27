@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +25,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by yrlin on 2017/3/23.
@@ -74,25 +79,50 @@ public class Inventory_Instock extends Fragment {
                 items.clear();
                 items_details.clear();
                 imgs_fruit.clear();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 for (String key : map.keySet()) {
-                    items.add(key);
+
                     Map<String, Object> tempMap = (Map)map.get(key);
-                    long diff = (long)tempMap.get("Expired") - (long)tempMap.get("Days");
-                    items_details.add(diff + " Days left");
-
-                    switch (key) {
-                        case "Apple" : imgs_fruit.add(R.drawable.apple);
-                            break;
-                        case "Broccoli" : imgs_fruit.add(R.drawable.broccoli);
-                            break;
-                        case "Eggplant" : imgs_fruit.add(R.drawable.eggplant);
-                            break;
-                        case "Carrot" : imgs_fruit.add(R.drawable.carrot);
-                            break;
+                    String putinString = (String)tempMap.get("putinDate");
+                    String putoutString = (String)tempMap.get("putoutDate");
+                    Date putinDate = new Date();
+                    try{
+                        putinDate = simpleDateFormat.parse(putinString);
+                        Log.v("啪啪啪","哪里跑");
+                    } catch (ParseException ex){
+                        ex.printStackTrace();
                     }
-                }
 
-                list.setAdapter(adapter);
+                    if (putoutString.length() < 4) {
+                        items.add(key);
+//                        try {
+//                            Date putoutDate = simpleDateFormat.parse(putoutString);
+//                        } catch (ParseException ex) {
+//                            ex.printStackTrace();
+//                        }
+
+
+                        Date curTime = new Date();
+                        long diff = curTime.getTime() - putinDate.getTime();
+                        Log.v("啪啪啪你多大",diff+"");
+                        items_details.add(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " Days left");
+
+                        switch (key) {
+                            case "Apple" : imgs_fruit.add(R.drawable.apple);
+                                break;
+                            case "Broccoli" : imgs_fruit.add(R.drawable.broccoli);
+                                break;
+                            case "Eggplant" : imgs_fruit.add(R.drawable.eggplant);
+                                break;
+                            case "Carrot" : imgs_fruit.add(R.drawable.carrot);
+                                break;
+                        }
+                    }
+
+                    list.setAdapter(adapter);
+                    }
+
+
             }
 
             @Override

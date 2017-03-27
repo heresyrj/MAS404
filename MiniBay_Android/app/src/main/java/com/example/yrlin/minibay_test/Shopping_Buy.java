@@ -124,7 +124,7 @@ public class Shopping_Buy extends Fragment {
                     DatabaseReference tempIsBought = tempItem.child("isBought");
                     tempIsBought.setValue("No");
                     DatabaseReference tempDate = tempItem.child("Date");
-                    String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
+                    String dateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
                     tempDate.setValue(dateTime);
 
                     shoppingRef.addValueEventListener(new ValueEventListener() {

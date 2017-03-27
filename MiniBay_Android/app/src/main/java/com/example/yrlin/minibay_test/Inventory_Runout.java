@@ -13,6 +13,7 @@ import android.view.ViewGroup;
  */
 
 public class Inventory_Runout extends Fragment {
+    
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

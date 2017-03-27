@@ -9,4 +9,8 @@
         android:layout_height="135dp"
         android:src="@drawable/inventory_background"/>tent"
         android:id="@+id/textView4" />
+    <ListView
+        android:id="@+id/inventory_runnout_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
