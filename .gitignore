@@ -1,18 +1,19 @@
 node_modules
 *vscode
-npm-debug.log
+/MiniBay_Android/npm-debug.log
 
 # for android studio
 *.iml
-.idea
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+.idea/
+MiniBay_Android/.idea/
+MiniBay_Android/.gradle/
+MiniBay_Android/local.properties
+MiniBay_Android/.idea/workspace.xml
+MiniBay_Android/.idea/libraries
 .DS_Store
-/build
-/captures
-.externalNativeBuild
+MiniBay_Android/build
+MiniBay_Android/captures
+MiniBay_Android/.externalNativeBuild
 
 
 #built application files

@@ -10,4 +10,6 @@
     <color name="bayWarning">#FFA500</color>
     <color name="bayError">#FF2600</color>
     <color name="bayDivier">#F1F3F2</color>
+    <color name="bayWhite">#FFFFFF</color>
+    <color name="bayDark">#343434</color>
 </resources>

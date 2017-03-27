@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/nav_header_height"
+    android:layout_height="124dp"
     android:background="@drawable/drawer_bg"
     android:gravity="center"
     android:orientation="vertical"
@@ -14,34 +14,31 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_height="62dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="0dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/photo" />
 
     <TextView
         android:id="@+id/textView"
         android:paddingLeft="80dp"
-        android:paddingBottom="0dp"
+        android:paddingTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cherylwang@gmail.com"
         android:layout_alignBottom="@+id/textView2"
-        android:fontFamily="sans-serif-condensed" />
+        android:layout_alignLeft="@+id/imageView"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="100dp"
-        android:paddingBottom="16dp"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingLeft="80dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="16dp"
         android:text="Cheryl Wang"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/userNameText"
         android:id="@+id/textView2"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textStyle="normal|bold"
-        android:textSize="14sp"
         android:layout_alignTop="@+id/imageView"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignStart="@+id/imageView" />

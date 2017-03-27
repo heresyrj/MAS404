@@ -54,4 +54,23 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Hamburger menu style -->
+    <style name="userNameText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/bayWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="userEmailText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/bayWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="drawerItemText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/bayDark</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
