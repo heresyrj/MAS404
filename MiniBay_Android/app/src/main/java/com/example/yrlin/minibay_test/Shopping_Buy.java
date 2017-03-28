@@ -206,6 +206,8 @@ public class Shopping_Buy extends Fragment {
                         DatabaseReference tempRef = db.getReference();
                         DatabaseReference tempShoppingRef = tempRef.child("shopping");
                         tempShoppingRef.child(curItem).child("isBought").setValue("Yes");
+                        String buydateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+                        tempShoppingRef.child(curItem).child("Date").setValue(buydateTime);
                     } else {
                         isBoughtList.set(p, "No");
                         FirebaseDatabase db = FirebaseDatabase.getInstance();
