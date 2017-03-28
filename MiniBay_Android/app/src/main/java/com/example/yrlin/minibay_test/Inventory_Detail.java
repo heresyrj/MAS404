@@ -43,7 +43,7 @@ public class Inventory_Detail extends AppCompatActivity {
         send_reminder = (Button)findViewById(R.id.send_reminder);
         add_shopping = (Button)findViewById(R.id.add_to_shopping_list);
 
-        send_reminder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_normal));
+        send_reminder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_emphasis));
         add_shopping.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_normal));
         setSupportActionBar(mToolbar);
 
