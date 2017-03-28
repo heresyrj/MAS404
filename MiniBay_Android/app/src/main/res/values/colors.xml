@@ -13,4 +13,5 @@
     <color name="bayWhite">#FFFFFF</color>
     <color name="bayDark">#343434</color>
     <color name="bayCarrot">#FFB108</color>
+    <color name="backgroudGrey">#F1F3F2</color>
 </resources>

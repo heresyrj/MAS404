@@ -163,6 +163,7 @@ class MyAdapter_Inventory_runout extends ArrayAdapter<String> {
         ImageView img = (ImageView) convertView.findViewById(R.id.inventory_icon);
 
         detailTv.setText(details.get(position));
+        detailTv.setTextAppearance(getContext(), R.style.inventoryRowItemExpiredDays);
         nameTv.setText(myTitles.get(position));
         img.setImageResource(imgs.get(position));
         return convertView;

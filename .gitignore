@@ -1,12 +1,12 @@
 node_modules
 *vscode
-/MiniBay_Android/npm-debug.log
+MiniBay_Android/npm-debug.log
+MiniBay_Android/.gradle
 
-# for android studio
+#for android studio
 *.iml
 .idea/
 MiniBay_Android/.idea/
-MiniBay_Android/.gradle/*
 MiniBay_Android/.gradle/
 MiniBay_Android/local.properties
 MiniBay_Android/.idea/workspace.xml
