@@ -4,16 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.yrlin.minibay_test.Shopping_Buy"
-    android:background="#F1F3F2">
+    android:background="#FFFFFF">
 
     <!-- TODO: Update blank fragment layout -->
     <EditText
-        android:inputType="textPersonName"
         android:id="@+id/input_shopping_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_margin="16dp"
+        android:background="@drawable/backwithborder"
+        android:inputType="textPersonName" />
     <Button
         android:id="@+id/send_shoppint_button"
         android:text="Add Info to Shopping List"
@@ -21,26 +23,27 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/input_shopping_text"
         android:layout_alignParentStart="true"/>
-        <LinearLayout
-            android:id="@+id/buy_items_list"
-            android:orientation="vertical"
+    <LinearLayout
+        android:id="@+id/buy_items_list"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F1F3F2">
+            android:paddingLeft="5dp"
+            android:layout_margin="6dp"
+            android:text="You may need to buy:"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:layout_margin="5dp"
-                android:text="You may need to buy:"
-                android:background="#F1F3F2" />
-
-            <ListView
-                android:id="@+id/buy_items_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+        <ListView
+            android:id="@+id/buy_items_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/list_divider"/>
+    </LinearLayout>
 
 
 

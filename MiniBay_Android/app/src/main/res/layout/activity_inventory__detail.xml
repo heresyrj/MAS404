@@ -51,7 +51,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/send_reminder"
             android:textSize="16dp"
-            android:background="@drawable/button_shape_normal"
+            android:background="@drawable/button_shape_emphasis"
             android:layout_weight="1" />
 
         <Button

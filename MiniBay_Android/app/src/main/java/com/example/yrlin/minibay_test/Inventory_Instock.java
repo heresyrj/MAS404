@@ -47,7 +47,7 @@ public class Inventory_Instock extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mRef = database.getReference();
-    DatabaseReference mInventory = mRef.child("inventory");
+    DatabaseReference mInventory = database.getReference().child("inventory");
     DatabaseReference mTest = mRef.child("Test");
     @Nullable
     @Override
@@ -79,6 +79,7 @@ public class Inventory_Instock extends Fragment {
                 items.clear();
                 items_details.clear();
                 imgs_fruit.clear();
+                Log.v("kkkk",map.size()+"");
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 for (String key : map.keySet()) {
 
