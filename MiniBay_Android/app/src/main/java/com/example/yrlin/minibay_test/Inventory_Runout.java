@@ -108,6 +108,9 @@ public class Inventory_Runout extends Fragment {
                                 break;
                             case "Carrot" : img_fruits.add(R.drawable.carrot_runout);
                                 break;
+                            case "Watermelon": img_fruits.add(R.drawable.watermelon_runout);
+                                break;
+                            default: img_fruits.add(R.drawable.dish_runout);
                         }
                     }
 

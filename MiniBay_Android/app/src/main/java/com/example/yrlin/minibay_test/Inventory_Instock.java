@@ -117,6 +117,9 @@ public class Inventory_Instock extends Fragment {
                                 break;
                             case "Carrot" : imgs_fruit.add(R.drawable.carrot);
                                 break;
+                            case "Watermelon": imgs_fruit.add(R.drawable.watermelon);
+                                break;
+                            default: imgs_fruit.add(R.drawable.dish);
                         }
                     }
 

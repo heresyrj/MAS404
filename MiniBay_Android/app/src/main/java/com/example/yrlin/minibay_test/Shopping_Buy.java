@@ -96,6 +96,11 @@ public class Shopping_Buy extends Fragment {
                             case "Carrot" : imgs_fruit.add(R.drawable.carrot);
                                 break;
                             case "Banana" : imgs_fruit.add(R.drawable.banana);
+                                break;
+                            case "Watermelon": imgs_fruit.add(R.drawable.watermelon);
+                                break;
+                            default: imgs_fruit.add(R.drawable.dish);
+
                         }
                     }
                 }
@@ -117,7 +122,7 @@ public class Shopping_Buy extends Fragment {
 
                 inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
-                if (!value.equals("Apple")&&!value.equals("Carrot")&&!value.equals("Eggplant")&&!value.equals("Broccoli")&&!value.equals("Banana")) {
+                if (!value.equals("Apple")&&!value.equals("Carrot")&&!value.equals("Eggplant")&&!value.equals("Broccoli")&&!value.equals("Banana")&&!value.equals("Watermelon")) {
                     Context context = getActivity();
                     CharSequence text = "Item not Found, Please input again!";
                     int duration = Toast.LENGTH_LONG;
@@ -156,6 +161,10 @@ public class Shopping_Buy extends Fragment {
                                         case "Carrot" : imgs_fruit.add(R.drawable.carrot);
                                             break;
                                         case "Banana" : imgs_fruit.add(R.drawable.banana);
+                                            break;
+                                        case "Watermelon": imgs_fruit.add(R.drawable.watermelon);
+                                            break;
+                                        default: imgs_fruit.add(R.drawable.watermelon);
                                     }
                                 }
                             }
