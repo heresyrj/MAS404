@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -111,6 +112,11 @@ public class Shopping_Buy extends Fragment {
             @Override
             public void onClick(View v) {
                 String value = mValueField.getText().toString().trim();
+                InputMethodManager inputManager = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
                 if (!value.equals("Apple")&&!value.equals("Carrot")&&!value.equals("Eggplant")&&!value.equals("Broccoli")&&!value.equals("Banana")) {
                     Context context = getActivity();
                     CharSequence text = "Item not Found, Please input again!";
