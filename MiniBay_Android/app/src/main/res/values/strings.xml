@@ -9,6 +9,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="suggestion_info">Based on the nutrition report, here are our recommendations.</string>
+
 
     <string-array name="buy_items">
         <item>Apple</item>

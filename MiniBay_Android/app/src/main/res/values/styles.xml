@@ -72,4 +72,59 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Nutrition report -->
+    <style name="suggestionTitle">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="suggestionContent">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/bayInfo</item>
+    </style>
+
+    <style name="suggestionItemUnselected">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:background">@drawable/chip_suggestion_unselected</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">16dp</item>
+    </style>
+
+    <style name="suggestionItemSelected">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/chip_suggestion_selected</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="cardTitle">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/bayDark</item>
+    </style>
+
+    <style name="cardInfo">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/bayInfo</item>
+    </style>
+
+    <style name="percentageNum">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/bayWarning</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
 </resources>
