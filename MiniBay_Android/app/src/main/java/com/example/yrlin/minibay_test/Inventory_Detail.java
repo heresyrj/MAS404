@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -36,12 +37,15 @@ public class Inventory_Detail extends AppCompatActivity {
     private Button add_shopping;
     private ImageView image_detail;
     private TextView freshness;
+    private TextView addedDate;
+    private TextView bestBefore;
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference mRef = db.getReference();
     DatabaseReference reminderRef = mRef.child("reminder");
     DatabaseReference shoppingRef = mRef.child("shopping");
     DatabaseReference inventoryRef = mRef.child("inventory");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,8 @@ public class Inventory_Detail extends AppCompatActivity {
         add_shopping = (Button)findViewById(R.id.add_to_shopping_list);
         image_detail = (ImageView)findViewById(R.id.image_detail);
         freshness = (TextView)findViewById(R.id.freshness);
+        addedDate = (TextView)findViewById(R.id.addDate);
+        bestBefore = (TextView)findViewById(R.id.bestBefore);
 
         send_reminder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_emphasis));
         add_shopping.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_normal));
@@ -127,7 +133,20 @@ public class Inventory_Detail extends AppCompatActivity {
                 long diff = curDate.getTime() - putinDate.getTime();
                 long usedDays = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
                 long percentage = (expireDays - usedDays) * 100 / expireDays;
-                freshness.setText("Freshness      "+percentage+"%");
+                if (percentage < 0) {
+                    freshness.setText("Expired!!!!!!!");
+                } else {
+                    freshness.setText("Freshness      "+percentage+"%");
+                }
+                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+                addedDate.setText("Add at "+format1.format(putinDate));
+                Date bestBeforeDate = new Date();
+                Calendar dateputin = Calendar.getInstance();
+                dateputin.setTime(putinDate);
+                dateputin.add(Calendar.DATE, expireDays);
+
+                bestBeforeDate = dateputin.getTime();
+                bestBefore.setText("Best Before  "+format1.format(bestBeforeDate));
             }
 
             @Override
