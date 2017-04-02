@@ -1,175 +1,230 @@
-/* eslint-disable  func-names */
-/* eslint quote-props: ["error", "consistent"]*/
-/**
- * This sample demonstrates a simple skill built with the Amazon Alexa Skills
- * nodejs skill development kit.
- * This sample supports multiple lauguages. (en-US, en-GB, de-DE).
- * The Intent Schema, Custom Slots and Sample Utterances for this skill, as well
- * as testing instructions are located at https://github.com/alexa/skill-sample-nodejs-fact
- **/
-
-// 'use strict';
-
-// const Alexa = require('alexa-sdk');
-
-// const APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
-
-// const languageStrings = {
-   
-//     'en-US': {
-//         translation: {
-//             FACTS: [
-//                 'An apple. ... a loaf of bread. ...and a box of chocolate. ...If you are going to the store, remember to buy milk. ...Have a nice day!',
-                
-//             ],
-//             SKILL_NAME: 'American Space Facts',
-//             GET_FACT_MESSAGE: "You have:",
-//             HELP_MESSAGE: 'You can say tell me a space fact, or, you can say exit... What can I help you with?',
-//             HELP_REPROMPT: 'What can I help you with?',
-//             STOP_MESSAGE: 'Goodbye!',
-//         },
-//     },
-// };
-
 'use strict';
 var Alexa = require("alexa-sdk");
-var appId = ''; //'amzn1.echo-sdk-ams.app.your-skill-id';
+var https = require("https");
+var capitalize = require('./');
+// var firebase = require('firebase');
+var firebaseHost = 'mas404-7d518.firebaseio.com';
+var appId = 'amzn1.ask.skill.1d9c0a68-4703-42b2-ad2e-d2268bb6484e'; //'amzn1.echo-sdk-ams.app.your-skill-id';
+
+function fbGet(key) {
+    return new Promise((resolve, reject) => {
+        var options = {
+            hostname: firebaseHost,
+            port: 443,
+            path: key + ".json",
+            method: 'GET'
+        };
+        var req = https.request(options, function(res) {
+            res.setEncoding('utf8');
+            var body = '';
+            res.on('data', function(chunk) {
+                body += chunk;
+            });
+            res.on('end', function() {
+                resolve(JSON.parse(body))
+            });
+        });
+        req.end();
+        req.on('error', reject);
+    });
+}
+
+function fbPut(key, value) {
+    return new Promise((resolve, reject) => {
+        var options = {
+            hostname: firebaseHost,
+            port: 443,
+            path: key + ".json",
+            method: 'PUT'
+        };
+
+        var req = https.request(options, function(res) {
+            console.log("request made")
+            res.setEncoding('utf8');
+            var body = '';
+            res.on('data', function(chunk) {
+                body += chunk;
+            });
+            res.on('end', function() {
+                resolve(body)
+            });
+        });
+        req.end(JSON.stringify(value));
+        req.on('error', reject);
+    });
+}
+
 
 exports.handler = function(event, context, callback) {
+
+    context.callbackWaitsForEmptyEventLoop = false; //<---Important
+
     var alexa = Alexa.handler(event, context);
     alexa.appId = appId;
-    alexa.dynamoDBTableName = 'highLowGuessUsers';
-    alexa.registerHandlers(newSessionHandlers, guessModeHandlers, startGameHandlers, guessAttemptHandlers);
+
+
+
+    alexa.registerHandlers(newSessionHandlers);
     alexa.execute();
 };
 
-var states = {
-    GUESSMODE: '_GUESSMODE', // User is trying to guess the number.
-    STARTMODE: '_STARTMODE'  // Prompt the user to start or restart the game.
-};
 
 var newSessionHandlers = {
     'NewSession': function() {
-        if(Object.keys(this.attributes).length === 0) {
-            this.attributes['endedSessionCount'] = 0;
-            this.attributes['gamesPlayed'] = 0;
+
+        this.emit(':ask', 'I am Minibay, your smart inventory and nutrition helper.' + ' Try to ask me about your inventory.');
+    },
+    'AMAZON.HelpIntent': function() {
+        this.emit(':ask', 'I am Minibay, your smart inventory and nutrition helper.' + ' Try ask me, if you have something.');
+    },
+    'AskInventoryIntent': function() {
+
+        var today = new Date();
+        // var itemName = this.event.request.intent.slots.name.value;
+        // var tempItem = new Item(itemName);
+        // var msPerDay = 24 * 60 * 60 * 1000;
+        // var bestBefore = tempItem.bestBefore.toDateString();
+
+        fbGet("/inventory/" + this.event.request.intent.slots.name.value.toString().charAt(0).toUpperCase() + this.event.request.intent.slots.name.value.toString().slice(1)).then(res => {
+            if (res.putoutDate == "No") {
+                var tempDate = new Date(res.putinDate);
+                this.emit(':ask', 'Yes, You bought ' + this.event.request.intent.slots.name.value.toString() + ' on ' + tempDate.toDateString() + '. What else can I help you?');
+
+            } else {
+                this.emit(':ask', 'No, you do not have ' + this.event.request.intent.slots.name.value.toString() + '. What else can I help you?');
+
+            }
+
+        });
+
+
+
+
+
+
+
+        // if (tempItem.status === true) {
+        //     var daysBefore = Math.round((today - tempItem.lastInTime) / msPerDay);
+        //     var freshness = Math.round(5 * (tempItem.bestBefore - today) / (msPerDay * tempItem.durationTime));
+        //     if (freshness > 0) {
+
+        //         this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago, ' + 'What else can I help you?');
+
+
+        //     } else {
+        //         var daysAfter = Math.round((tempItem.bestBefore - today) / msPerDay);
+        //         this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago,' + ' It has already expired for ' + daysAfter + ' days and has turned bad. You had better get rid of it.');
+
+
+        //     }
+
+        // } else {
+        //     this.emit(':ask', 'You do not have' + tempItem.name + ' . What else can I help you?');
+        // }
+    },
+    'AskWhenIntent': function() {
+        var itemName = this.event.request.intent.slots.name.value;
+        var tempItem = new Item(itemName);
+        var today = new Date();
+        var msPerDay = 24 * 60 * 60 * 1000;
+
+
+        if (tempItem.status === true) {
+            var daysBefore = Math.round((today - tempItem.lastInTime) / msPerDay);
+            var bestBefore = Math.round((tempItem.bestBefore - today) / msPerDay);
+            var freshness = Math.round(5 * (tempItem.bestBefore - today) / (msPerDay * tempItem.durationTime));
+            if (freshness > 2) {
+
+                this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago,' + ' It is still very fresh. ' + 'What else can I help you?');
+            } else if (freshness >= 0) {
+                this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago,' + ' It is turning bad. ' + 'You had better have it in ' + bestBefore + ' days. What else can I help you?');
+            } else {
+                var daysAfter = Math.round((tempItem.bestBefore - today) / msPerDay);
+                this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago,' + ' It has already expired for' + daysAfter + ' days and has turned bad. You had better get rid of it. ' + 'What else can I help you?');
+
+            }
+        } else {
+            this.emit(':ask', 'You do not have' + tempItem.name + ". What else can I help you?");
         }
-        this.handler.state = states.STARTMODE;
-        this.emit(':ask', 'Welcome to High Low guessing game. You have played '
-            + this.attributes['gamesPlayed'].toString() + ' times. would you like to play?',
-            'Say yes to start the game or no to quit.');
+    },
+
+    'ListInvenotryIntent': function() {
+        var itemName = this.event.request.intent.slots.name.value;
+        if (itemName == 'fruit') {
+            this.emit(':ask', 'You have apple, blueberry, banana and orange.' + ' What else can I help you with?');
+
+        } else if (itemName == 'meat') {
+            this.emit(':ask', 'You have beef, salmon and chickenbreast.' + ' What else can I help you with?');
+        }
+
+
+    },
+    'WhatToEatIntent': function() {
+        var tempItem = new Item("chickenbreast");
+        var today = new Date();
+        var msPerDay = 3600 * 1000 * 24;
+        var bestBefore = Math.round((tempItem.bestBefore - today) / msPerDay);
+        this.emit(':ask', 'I would suggest you have chicken breast. Because you need to have it in ' + bestBefore + ' days before it turns bad. You can have it with broccoli and mushroom. What else can I help you with?');
+
     },
     "AMAZON.StopIntent": function() {
-      this.emit(':tell', "Goodbye!");  
+        this.emit(':tell', "Ok. Goodbye!");
     },
     "AMAZON.CancelIntent": function() {
-      this.emit(':tell', "Goodbye!");  
+        this.emit(':tell', "Ok. Goodbye!");
     },
-    'SessionEndedRequest': function () {
+
+    'SessionEndedRequest': function() {
         console.log('session ended!');
         //this.attributes['endedSessionCount'] += 1;
         this.emit(":tell", "Goodbye!");
     }
 };
 
-var startGameHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
-    'NewSession': function () {
-        this.emit('NewSession'); // Uses the handler in newSessionHandlers
-    },
-    'AMAZON.HelpIntent': function() {
-        var message = 'I will think of a number between zero and one hundred, try to guess and I will tell you if it' +
-            ' is higher or lower. Do you want to start the game?';
-        this.emit(':ask', message, message);
-    },
-    'AMAZON.YesIntent': function() {
-        this.attributes["guessNumber"] = Math.floor(Math.random() * 100);
-        this.handler.state = states.GUESSMODE;
-        this.emit(':ask', 'Great! ' + 'Try saying a number to start the game.', 'Try saying a number.');
-    },
-    'AMAZON.NoIntent': function() {
-        console.log("NOINTENT");
-        this.emit(':tell', 'Ok, see you next time!');
-    },
-    "AMAZON.StopIntent": function() {
-      console.log("STOPINTENT");
-      this.emit(':tell', "Goodbye!");  
-    },
-    "AMAZON.CancelIntent": function() {
-      console.log("CANCELINTENT");
-      this.emit(':tell', "Goodbye!");  
-    },
-    'SessionEndedRequest': function () {
-        console.log("SESSIONENDEDREQUEST");
-        //this.attributes['endedSessionCount'] += 1;
-        this.emit(':tell', "Goodbye!");
-    },
-    'Unhandled': function() {
-        console.log("UNHANDLED");
-        var message = 'Say yes to continue, or no to end the game.';
-        this.emit(':ask', message, message);
-    }
-});
+var Item = function(name) {
+    var time1 = new Date('7, March, 2017');
+    var time4 = new Date('1, March, 2017');
+    var time2 = new Date('1, march, 2017');
+    var time3 = new Date('12, March, 2017');
+    var durationTime;
+    if (name == "apple") {
 
-var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
-    'NewSession': function () {
-        this.handler.state = '';
-        this.emitWithState('NewSession'); // Equivalent to the Start Mode NewSession handler
-    },
-    'NumberGuessIntent': function() {
-        var guessNum = parseInt(this.event.request.intent.slots.number.value);
-        var targetNum = this.attributes["guessNumber"];
-        console.log('user guessed: ' + guessNum);
+        this.durationTime = 10;
 
-        if(guessNum > targetNum){
-            this.emit('TooHigh', guessNum);
-        } else if( guessNum < targetNum){
-            this.emit('TooLow', guessNum);
-        } else if (guessNum === targetNum){
-            // With a callback, use the arrow function to preserve the correct 'this' context
-            this.emit('JustRight', () => {
-                this.emit(':ask', guessNum.toString() + 'is correct! Would you like to play a new game?',
-                'Say yes to start a new game, or no to end the game.');
-        })
-        } else {
-            this.emit('NotANum');
-        }
-    },
-    'AMAZON.HelpIntent': function() {
-        this.emit(':ask', 'I am thinking of a number between zero and one hundred, try to guess and I will tell you' +
-            ' if it is higher or lower.', 'Try saying a number.');
-    },
-    "AMAZON.StopIntent": function() {
-        console.log("STOPINTENT");
-      this.emit(':tell', "Goodbye!");  
-    },
-    "AMAZON.CancelIntent": function() {
-        console.log("CANCELINTENT");
-    },
-    'SessionEndedRequest': function () {
-        console.log("SESSIONENDEDREQUEST");
-        this.attributes['endedSessionCount'] += 1;
-        this.emit(':tell', "Goodbye!");
-    },
-    'Unhandled': function() {
-        console.log("UNHANDLED");
-        this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
-    }
-});
+        this.name = name;
+        this.status = true;
+        this.lastInTime = time1;
+        this.lastOutTime = time2;
+        this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
 
-// These handlers are not bound to a state
-var guessAttemptHandlers = {
-    'TooHigh': function(val) {
-        this.emit(':ask', val.toString() + ' is too high.', 'Try saying a smaller number.');
-    },
-    'TooLow': function(val) {
-        this.emit(':ask', val.toString() + ' is too low.', 'Try saying a larger number.');
-    },
-    'JustRight': function(callback) {
-        this.handler.state = states.STARTMODE;
-        this.attributes['gamesPlayed']++;
-        callback();
-    },
-    'NotANum': function() {
-        this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
+
+
+    } else if (name == "chickenbreast") {
+
+        this.durationTime = 7;
+        this.name = name;
+        this.status = true;
+        this.lastInTime = time2;
+        this.lastOutTime = time3;
+        this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
+
+
+    } else if (name == "orange") {
+
+        this.durationTime = 4;
+        this.name = name;
+        this.status = true;
+        this.lastInTime = time4;
+        this.lastOutTime = time3;
+        this.bestBefore = new Date(time4.getTime() + this.durationTime * 3600 * 24 * 1000);
+
+
+    } else {
+
+        this.name = name;
+        this.status = false;
+
     }
-};
+
+
+}
