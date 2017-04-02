@@ -23,14 +23,15 @@
         android:layout_height="200dp"
         android:id="@+id/image_detail"
         android:layout_below="@id/detail_toolbar"/>
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@id/image_detail"
         android:paddingLeft="10dp"
         android:background="#dddddd"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:id="@+id/item_status">
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,14 +50,16 @@
             android:id="@+id/bestBefore"
             android:layout_below="@id/addDate"
             android:padding="5dp"/>
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <ListView
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    </RelativeLayout>
+        android:background="#dddddd"
+        android:layout_height="175dp"
+        android:id="@+id/nutrition_list_view"
+        android:layout_below="@id/item_status"
+        />
 
 
 
@@ -64,7 +67,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:id="@+id/two_button">
 
         <Button
             android:text="SEND REMINDER"

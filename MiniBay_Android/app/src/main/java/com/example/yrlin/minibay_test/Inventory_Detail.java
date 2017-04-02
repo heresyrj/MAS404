@@ -1,5 +1,6 @@
 package com.example.yrlin.minibay_test;
 
+import android.app.Dialog;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,14 +23,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -39,6 +47,7 @@ public class Inventory_Detail extends AppCompatActivity {
     private TextView freshness;
     private TextView addedDate;
     private TextView bestBefore;
+    private ListView nutritionListView;
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference mRef = db.getReference();
@@ -60,6 +69,7 @@ public class Inventory_Detail extends AppCompatActivity {
         freshness = (TextView)findViewById(R.id.freshness);
         addedDate = (TextView)findViewById(R.id.addDate);
         bestBefore = (TextView)findViewById(R.id.bestBefore);
+        nutritionListView = (ListView) findViewById(R.id.nutrition_list_view);
 
         send_reminder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_emphasis));
         add_shopping.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_normal));
@@ -138,15 +148,13 @@ public class Inventory_Detail extends AppCompatActivity {
                 } else {
                     freshness.setText("Freshness      "+percentage+"%");
                 }
-                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-                addedDate.setText("Add at "+format1.format(putinDate));
-                Date bestBeforeDate = new Date();
+                SimpleDateFormat format1 =  new SimpleDateFormat("yyyy-MM-dd");
+                addedDate.setText("Add at            "+format1.format(putinDate));
                 Calendar dateputin = Calendar.getInstance();
                 dateputin.setTime(putinDate);
                 dateputin.add(Calendar.DATE, expireDays);
-
-                bestBeforeDate = dateputin.getTime();
-                bestBefore.setText("Best Before  "+format1.format(bestBeforeDate));
+                Date bestBeforeDate = dateputin.getTime();
+                bestBefore.setText("Best Before          "+format1.format(bestBeforeDate));
             }
 
             @Override
@@ -155,6 +163,24 @@ public class Inventory_Detail extends AppCompatActivity {
             }
         });
 
+        String fileName = "nutrition.json";
+        ArrayList<String> nutritionlist = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(loadJSONFromAsset(fileName));
+            JSONObject curObject = jsonObject.getJSONObject(curItem.toLowerCase());
+            JSONObject nutritionObj = curObject.getJSONObject("nutrition");
+            Map<String, String> nutritionMap = new HashMap<>();
+            parse(nutritionObj, nutritionMap);
+            for (String key : nutritionMap.keySet()) {
+                String temp = key + "         " + nutritionMap.get(key) + " mg ";
+                nutritionlist.add(temp);
+            }
+            nutritionListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, nutritionlist));
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
@@ -183,17 +209,15 @@ public class Inventory_Detail extends AppCompatActivity {
         send_reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast imageToast = new Toast(getBaseContext());
-                ImageView image = new ImageView(getBaseContext());
 
-                image.setImageResource(R.drawable.reminder_send);
 
-                imageToast.setView(image);
-                imageToast.setDuration(Toast.LENGTH_LONG);
-                imageToast.setGravity(Gravity.CENTER, 0, 0);
-                imageToast.show();
-                DatabaseReference tempKey = reminderRef.child("First");
-                tempKey.setValue("You may need to buy some "+bundle.get("itemName").toString());
+
+                //show dialog
+                showDialog(bundle);
+
+
+
+
             }
         });
         GradientDrawable buttonColor = (GradientDrawable) add_shopping.getBackground();
@@ -235,5 +259,67 @@ public class Inventory_Detail extends AppCompatActivity {
             return null;
         }
         return json;
+    }
+    public static Map<String,String> parse(JSONObject json , Map<String,String> out) throws JSONException {
+        Iterator<String> keys = json.keys();
+        while(keys.hasNext()){
+            String key = keys.next();
+            String val = null;
+            try{
+                JSONObject value = json.getJSONObject(key);
+                parse(value,out);
+            }catch(Exception e){
+                val = json.getString(key);
+            }
+
+            if(val != null){
+                out.put(key,val);
+            }
+        }
+        return out;
+    }
+
+    private void showDialog(final Bundle bundle) {
+        final Dialog mydiag = new Dialog(this);
+        mydiag.setTitle("some title");
+        mydiag.setContentView(R.layout.message_dialog);
+        Button button_cancel = (Button) mydiag.findViewById(R.id.dialog_cancel);
+        final EditText message = (EditText)mydiag.findViewById(R.id.message_text);
+        message.setText("You may need to buy some "+bundle.get("itemName").toString());
+
+        button_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mydiag.dismiss();
+            }
+        });
+
+        Button button_send = (Button) mydiag.findViewById(R.id.dialog_send);
+
+        button_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                DatabaseReference tempKey = reminderRef.child("First");
+                String message_text = message.getText().toString();
+                tempKey.setValue(message_text);
+
+
+                Toast imageToast = new Toast(getBaseContext());
+                ImageView image = new ImageView(getBaseContext());
+
+                image.setImageResource(R.drawable.reminder_send);
+
+                imageToast.setView(image);
+                imageToast.setDuration(Toast.LENGTH_LONG);
+                imageToast.setGravity(Gravity.CENTER, 0, 0);
+                imageToast.show();
+                mydiag.dismiss();
+            }
+        });
+
+        mydiag.show();
     }
 }
