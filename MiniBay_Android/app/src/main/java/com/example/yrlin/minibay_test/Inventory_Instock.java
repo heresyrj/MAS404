@@ -104,9 +104,9 @@ public class Inventory_Instock extends Fragment {
 
 
                         Date curTime = new Date();
-                        long diff = curTime.getTime() - putinDate.getTime();
+                        long diff =  curTime.getTime() - putinDate.getTime();
                         Log.v("啪啪啪你多大",diff+"");
-                        items_details.add(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " Days left");
+                        items_details.add((15 - TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)) + " Days left");
 
                         switch (key) {
                             case "Apple" : imgs_fruit.add(R.drawable.apple);
@@ -118,6 +118,8 @@ public class Inventory_Instock extends Fragment {
                             case "Carrot" : imgs_fruit.add(R.drawable.carrot);
                                 break;
                             case "Watermelon": imgs_fruit.add(R.drawable.watermelon);
+                                break;
+                            case "Banana": imgs_fruit.add(R.drawable.banana);
                                 break;
                             default: imgs_fruit.add(R.drawable.dish);
                         }

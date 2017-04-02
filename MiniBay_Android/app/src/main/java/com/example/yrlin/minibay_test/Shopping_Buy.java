@@ -68,7 +68,7 @@ public class Shopping_Buy extends Fragment {
         mValueField = (EditText) view.findViewById(R.id.input_shopping_text);
         mAddBtn = (Button) view.findViewById(R.id.send_shoppint_button);
         mAddBtn.setTextColor(getResources().getColor(android.R.color.white));
-        mAddBtn.setBackground(getResources().getDrawable(R.drawable.button_shape_disabled));
+        mAddBtn.setBackground(getResources().getDrawable(R.drawable.button_shape_normal));
 
 
         final MyAdapter adapter = new MyAdapter(this.getActivity(), items, imgs_fruit, items_isBought);
