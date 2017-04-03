@@ -1,0 +1,63 @@
+{
+    
+    "apple":  {
+        "category": "fruit",
+        "expireDays": 15,
+        "nutrition": {
+            "energy": 520,
+            "fiber": 16,
+            "calcium": 80,
+            "vitaminc": 40
+        }
+    },
+    "banana": {
+        "category": "fruit",
+        "expireDays": 15,
+        "nutrition": {
+            "energy": 520,
+            "fiber": 16,
+            "calcium": 80,
+            "vitaminc": 40
+        }
+    },
+    "watermelon": {
+        "category": "fruit",
+        "expireDays": 20,
+        "nutrition": {
+            "energy": 12,
+            "fiber": 20,
+            "calcium": 85,
+            "vitaminc": 30
+        }
+    },
+    "eggplant": {
+        "category": "vegetables",
+        "expireDays": 15,
+        "nutrition": {
+            "energy": 120,
+            "fiber": 20,
+            "calcium": 100,
+            "vitaminc": 40
+        }
+    },
+    "carrot": {
+        "category": "vegetables",
+        "expireDays": 14,
+        "nutrition": {
+            "energy": 200,
+            "fiber": 25,
+            "calcium": 150,
+            "vitaminc": 40
+        }
+    },
+    "broccoli": {
+        "category": "vegetables",
+        "expireDays": 12,
+        "nutrition": {
+            "energy": 80,
+            "fiber": 20,
+            "calcium": 100,
+            "vitaminc": 30
+        }
+    }
+}

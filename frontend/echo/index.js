@@ -5,6 +5,10 @@ var capitalize = require('./');
 // var firebase = require('firebase');
 var firebaseHost = 'mas404-7d518.firebaseio.com';
 var appId = 'amzn1.ask.skill.1d9c0a68-4703-42b2-ad2e-d2268bb6484e'; //'amzn1.echo-sdk-ams.app.your-skill-id';
+var fs = require("fs");
+
+
+
 
 function fbGet(key) {
     return new Promise((resolve, reject) => {
@@ -80,25 +84,35 @@ var newSessionHandlers = {
     'AskInventoryIntent': function() {
 
         var today = new Date();
-        // var itemName = this.event.request.intent.slots.name.value;
-        // var tempItem = new Item(itemName);
-        // var msPerDay = 24 * 60 * 60 * 1000;
+
+        var itemName = this.event.request.intent.slots.name.value;
+        var tempItem = new Item(itemName);
+        var msPerDay = 24 * 60 * 60 * 1000;
         // var bestBefore = tempItem.bestBefore.toDateString();
 
         fbGet("/inventory/" + this.event.request.intent.slots.name.value.toString().charAt(0).toUpperCase() + this.event.request.intent.slots.name.value.toString().slice(1)).then(res => {
-            if (res.putoutDate == "No") {
-                var tempDate = new Date(res.putinDate);
-                this.emit(':ask', 'Yes, You bought ' + this.event.request.intent.slots.name.value.toString() + ' on ' + tempDate.toDateString() + '. What else can I help you?');
+            var putoutDate = res.putoutDate;
+            var putinDate = new Date(res.putinDate);
 
+            var freshness = 5 * (tempItem.durationTime - Math.round((today - putinDate) / msPerDay)) / tempItem.durationTime;
+            var remain = Math.round(tempItem.durationTime - (today - putinDate) / msPerDay);
+            var daysBefore = Math.round((today - putinDate) / msPerDay);
+            var daysAfter = Math.round((today - putinDate - tempItem.durationTime) / msPerDay);
+            // this.emit(':ask', 'Yes,  You bought ' + this.event.request.intent.slots.name.value+ 'on' + putinDate);
+
+
+            if (putoutDate == "No") {
+
+                if (freshness > 0) {
+                    this.emit(':ask', 'Yes,  You bought ' + itemName + ' ' + remain + ' days ago' + '. What else can I help you?');
+                } else {
+                    this.emit(':ask', 'You bought ' + itemName + ' ' + daysBefore + ' days ago,' + ' It has already expired for ' + daysAfter + ' days and has turned bad. You had better get rid of it.');
+                }
             } else {
-                this.emit(':ask', 'No, you do not have ' + this.event.request.intent.slots.name.value.toString() + '. What else can I help you?');
-
-            }
+                this.emit(':ask', 'No, You do not have ' + itemName + '. What else can I help you?');
+            };
 
         });
-
-
-
 
 
 
@@ -123,108 +137,174 @@ var newSessionHandlers = {
         // }
     },
     'AskWhenIntent': function() {
+
         var itemName = this.event.request.intent.slots.name.value;
         var tempItem = new Item(itemName);
         var today = new Date();
         var msPerDay = 24 * 60 * 60 * 1000;
 
+        fbGet("/inventory/" + this.event.request.intent.slots.name.value.toString().charAt(0).toUpperCase() + this.event.request.intent.slots.name.value.toString().slice(1)).then(res => {
+            var putoutDate = res.putoutDate;
+            var putinDate = new Date(res.putinDate);
 
-        if (tempItem.status === true) {
-            var daysBefore = Math.round((today - tempItem.lastInTime) / msPerDay);
-            var bestBefore = Math.round((tempItem.bestBefore - today) / msPerDay);
-            var freshness = Math.round(5 * (tempItem.bestBefore - today) / (msPerDay * tempItem.durationTime));
-            if (freshness > 2) {
+            var freshness = 5 * (tempItem.durationTime - Math.round((today - putinDate) / msPerDay)) / tempItem.durationTime;
+            var bestBefore = tempItem.durationTime - Math.round((today - putinDate) / msPerDay);
+            var daysBefore = Math.round((today - putinDate) / msPerDay);
+            var daysAfter = Math.round((today - putinDate) / msPerDay) - tempItem.durationTime;
+            // this.emit(':ask', 'Yes,  You bought ' + this.event.request.intent.slots.name.value+ 'on' + putinDate);
 
-                this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago,' + ' It is still very fresh. ' + 'What else can I help you?');
-            } else if (freshness >= 0) {
-                this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago,' + ' It is turning bad. ' + 'You had better have it in ' + bestBefore + ' days. What else can I help you?');
+
+            if (putoutDate == "No") {
+                // var daysBefore = Math.round((today - tempItem.lastInTime) / msPerDay);
+                // var bestBefore = Math.round((tempItem.bestBefore - today) / msPerDay);
+                // var freshness = Math.round(5 * (tempItem.bestBefore - today) / (msPerDay * tempItem.durationTime));
+                if (freshness > 2) {
+
+                    this.emit(':ask', 'You bought ' + itemName + ' ' + daysBefore + ' days ago,' + ' It is still very fresh. ' + 'What else can I help you?');
+                } else if (freshness >= 0) {
+                    this.emit(':ask', 'You bought ' + itemName + ' ' + daysBefore + ' days ago,' + ' It is turning bad. ' + 'You had better have it in ' + bestBefore + ' days. What else can I help you?');
+                } else {
+                    this.emit(':ask', 'You bought ' + itemName + ' ' + daysBefore + ' days ago,' + ' It has already expired for' + daysAfter + ' days and has turned bad. You had better get rid of it. ' + 'What else can I help you?');
+                }
             } else {
-                var daysAfter = Math.round((tempItem.bestBefore - today) / msPerDay);
-                this.emit(':ask', 'You bought ' + tempItem.name + ' ' + daysBefore + ' days ago,' + ' It has already expired for' + daysAfter + ' days and has turned bad. You had better get rid of it. ' + 'What else can I help you?');
-
+                this.emit(':ask', 'You do not have ' + itemName + ". What else can I help you?");
             }
-        } else {
-            this.emit(':ask', 'You do not have' + tempItem.name + ". What else can I help you?");
-        }
+
+        });
+
     },
 
     'ListInvenotryIntent': function() {
-        var itemName = this.event.request.intent.slots.name.value;
-        if (itemName == 'fruit') {
-            this.emit(':ask', 'You have apple, blueberry, banana and orange.' + ' What else can I help you with?');
 
-        } else if (itemName == 'meat') {
-            this.emit(':ask', 'You have beef, salmon and chickenbreast.' + ' What else can I help you with?');
-        }
+        var contents = fs.readFileSync("test.json");
+        var jsonObject = JSON.parse(contents);
+        var array = " ";
+        fbGet("/inventory").then(res => {
+
+            // var fbObject = JSON.parse(res);
+            // var key = "Apple";
+            // var tempDate =  res[key].putinDate;
+            var keys = Object.keys(res);
+            for (var i = 0; i < keys.length; i++) {
+                if (res[keys[i]].putoutDate == "No") {
+                    var tempName = keys[i].toString().toLowerCase();
+                    if (jsonObject[tempName].category == this.event.request.intent.slots.name.value) {
+                        array = array.concat(keys[i], ",");
+                    }
+                }
+                // array  = array.concat(keys[i],",");
+            }
+            this.emit(':ask', 'You have ' + array + ' What else can I help you with?');
+        });
 
 
     },
+
     'WhatToEatIntent': function() {
-        var tempItem = new Item("chickenbreast");
         var today = new Date();
         var msPerDay = 3600 * 1000 * 24;
-        var bestBefore = Math.round((tempItem.bestBefore - today) / msPerDay);
-        this.emit(':ask', 'I would suggest you have chicken breast. Because you need to have it in ' + bestBefore + ' days before it turns bad. You can have it with broccoli and mushroom. What else can I help you with?');
+        var minTime = 20;
+        var suggestedFood = "";
+        var bestBefore;
+        fbGet("/inventory").then(res => {
+            var keys = Object.keys(res);
+            for (var i = 0; i < keys.length; i++) {
+                if (res[keys[i]].putoutDate == "No") {
+                    var tempName = keys[i].toString().toLowerCase();
+                    var tempItem = new Item(tempName);
+                    var putinDate = new Date(res[keys[i]].putinDate);
+                    var freshness = 5 * (tempItem.durationTime - Math.round((today - putinDate) / msPerDay)) / tempItem.durationTime;
+                    var daysAfter = tempItem.durationTime - Math.round((today - putinDate) / msPerDay);
+                    if (freshness > 0) {
+                        if (daysAfter < minTime) {
+                            minTime = daysAfter;
+                            suggestedFood = tempName;
+                            // bestBefore = Math.round(tempItem.durationTime - (today - putinDate) / msPerDay);
+                        }
+                    }
+                }
+
+            }
+             this.emit(':ask', 'I would suggest you have ' + suggestedFood + ' Because you need to have it in ' + minTime + ' days before it turns bad. What else can I help you with?');
+
+        });
+       
+
+
+
 
     },
     "AMAZON.StopIntent": function() {
-        this.emit(':tell', "Ok. Goodbye!");
+        this.emit(':tell', "Ok. I will always be here. Goodbye!");
     },
     "AMAZON.CancelIntent": function() {
-        this.emit(':tell', "Ok. Goodbye!");
+        this.emit(':tell', "Ok. I will always be here. Goodbye!");
     },
 
     'SessionEndedRequest': function() {
         console.log('session ended!');
         //this.attributes['endedSessionCount'] += 1;
-        this.emit(":tell", "Goodbye!");
+        this.emit(":tell", "I will always be here. Goodbye!");
     }
 };
 
 var Item = function(name) {
-    var time1 = new Date('7, March, 2017');
-    var time4 = new Date('1, March, 2017');
-    var time2 = new Date('1, march, 2017');
-    var time3 = new Date('12, March, 2017');
+    // var today = new Date();
+    // var time1 = new Date('7, March, 2017');
+    // var time4 = new Date('1, March, 2017');
+    // var time2 = new Date('1, march, 2017');
+    // var time3 = new Date('12, March, 2017');
     var durationTime;
-    if (name == "apple") {
+    var putinDate;
+    var putoutDate;
+    var freshness;
+    var remain;
+    var daysBefore;
+    var daysAfter;
 
-        this.durationTime = 10;
-
-        this.name = name;
-        this.status = true;
-        this.lastInTime = time1;
-        this.lastOutTime = time2;
-        this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
-
-
-
-    } else if (name == "chickenbreast") {
-
-        this.durationTime = 7;
-        this.name = name;
-        this.status = true;
-        this.lastInTime = time2;
-        this.lastOutTime = time3;
-        this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
+    var contents = fs.readFileSync("test.json");
+    var obj = JSON.parse(contents);
+    this.durationTime = obj[name].expireDays;
 
 
-    } else if (name == "orange") {
-
-        this.durationTime = 4;
-        this.name = name;
-        this.status = true;
-        this.lastInTime = time4;
-        this.lastOutTime = time3;
-        this.bestBefore = new Date(time4.getTime() + this.durationTime * 3600 * 24 * 1000);
 
 
-    } else {
 
-        this.name = name;
-        this.status = false;
 
-    }
+    // this.name = name;
+    // this.status = true;
+    // this.lastInTime = time1;
+    // this.lastOutTime = time2;
+    // this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
+
+
+
+    // } else if (name == "chickenbreast") {
+
+    //     this.durationTime = 7;
+    //     this.name = name;
+    //     this.status = true;
+    //     this.lastInTime = time2;
+    //     this.lastOutTime = time3;
+    //     this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
+
+
+    // } else if (name == "orange") {
+
+    //     this.durationTime = 4;
+    //     this.name = name;
+    //     this.status = true;
+    //     this.lastInTime = time4;
+    //     this.lastOutTime = time3;
+    //     this.bestBefore = new Date(time4.getTime() + this.durationTime * 3600 * 24 * 1000);
+
+
+    // } else {
+
+    //     this.name = name;
+    //     this.status = false;
+
+    // }
 
 
 }
