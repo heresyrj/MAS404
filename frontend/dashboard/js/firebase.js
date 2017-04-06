@@ -8,6 +8,32 @@ let config = {
   messagingSenderId: "908793150078"
 };
 
+function loadJSON(path ,callback) {   
+
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    xobj.open('GET', path, true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);  
+ }
+
+loadJSON("../nutrition.json", (responseText) => {
+        data = JSON.parse(responseText);
+		console.log(data)
+})
+
+
+// $.getJSON('../nutrition.json').done(json => {console.log(json)})
+
+
+// let nutrition = JSON.parse();
+// console.log(nutrition)
+
 firebase.initializeApp(config);
 let database = firebase.database();
 let inventory_ref = database.ref("inventory");
