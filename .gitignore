@@ -5,7 +5,7 @@ MiniBay_Android/.gradle
 
 #for android studio
 *.iml
-.idea/
+.idea/*
 MiniBay_Android/.idea/
 MiniBay_Android/.gradle/
 MiniBay_Android/local.properties

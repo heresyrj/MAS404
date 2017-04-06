@@ -11,56 +11,188 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        android:background="?attr/colorPrimary">
-    </android.support.v7.widget.Toolbar>
+        app:titleTextColor="@android:color/white"></android.support.v7.widget.Toolbar>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/image_detail"
-        android:layout_below="@id/detail_toolbar"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/image_detail"
-        android:paddingLeft="10dp"
-        android:background="#dddddd"
-        android:layout_margin="10dp"
-        android:id="@+id/item_status">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/detail_toolbar"
+        android:background="#FFF">
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/freshness"
-            android:padding="5dp"/>
-        <TextView
+            android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/image_detail"
+            android:background="@drawable/image_drop_shadow"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_below="@id/detail_toolbar"/>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view1"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/addDate"
-            android:layout_below="@id/freshness"
-            android:padding="5dp"/>
-        <TextView
+            android:layout_below="@+id/image_detail"
+            card_view:cardCornerRadius="4dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:id="@+id/item_status">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        style="@style/itemCardTitle"
+                        android:text="Freshness"
+                        android:id="@+id/freshnessTitle"/>
+
+                    <TextView
+                        android:id="@+id/freshness"
+                        style="@style/itemCardNum"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="90%" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/addDateTitle"
+                        style="@style/itemCardText"
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Added" />
+
+                    <TextView
+                        android:id="@+id/addDate"
+                        style="@style/itemCardDate"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="Feb 20" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/bestBeforeTitle"
+                        style="@style/itemCardText"
+                        android:text="Best Before"/>
+                    <TextView
+                        android:id="@+id/bestBefore"
+                        style="@style/itemCardDate"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Feb 20" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nutrition_card"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="72dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/bestBefore"
-            android:layout_below="@id/addDate"
-            android:padding="5dp"/>
-    </LinearLayout>
+            android:layout_below="@+id/card_view1"
+            card_view:cardCornerRadius="4dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            >
 
-    <ListView
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:background="#dddddd"
-        android:layout_height="175dp"
-        android:id="@+id/nutrition_list_view"
-        android:layout_below="@id/item_status"
-        />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:id="@+id/nutrition_items_layout">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/nutrition_card_title"
+                        style="@style/itemCardTitle"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nutrition Facts" />
+
+                    <TextView
+                        android:id="@+id/nutrition_detail_title"
+                        style="@style/nutritionInfoTitle"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Per serve (100g)" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <ListView
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="72dp"
+            android:layout_width="match_parent"
+            android:background="#dddddd"
+            android:layout_height="266dp"
+            android:id="@+id/nutrition_list_view"
+            android:layout_below="@id/card_view1"
+            />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
     <LinearLayout
@@ -102,6 +234,5 @@
             android:background="@drawable/button_shape_normal"
             android:layout_weight="1"/>
     </LinearLayout>
-
 
 </RelativeLayout>
