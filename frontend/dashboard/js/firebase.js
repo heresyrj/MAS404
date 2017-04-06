@@ -1,101 +1,91 @@
 // Initialize Firebase
-var config = {
-	apiKey: "AIzaSyBYQNdY_n-fX8Cu5V2assXqsMq720UxBoc",
-	authDomain: "mas404-7d518.firebaseapp.com",
-	databaseURL: "https://mas404-7d518.firebaseio.com",
-	projectId: "mas404-7d518",
-	storageBucket: "mas404-7d518.appspot.com",
-	messagingSenderId: "908793150078"
+let config = {
+  apiKey: "AIzaSyBYQNdY_n-fX8Cu5V2assXqsMq720UxBoc",
+  authDomain: "mas404-7d518.firebaseapp.com",
+  databaseURL: "https://mas404-7d518.firebaseio.com",
+  projectId: "mas404-7d518",
+  storageBucket: "mas404-7d518.appspot.com",
+  messagingSenderId: "908793150078"
 };
 
-firebase.initializeApp(config)
-
-var database = firebase.database()
-
-var inventory_ref = database.ref('inventory')
+firebase.initializeApp(config);
+let database = firebase.database();
+let inventory_ref = database.ref("inventory");
 
 function parseTime(time) {
-	var month = parseInt(time.substring(5, 7))
-	var day = parseInt(time.substring(8, 10))
-	var hour = parseInt(time.substring(10, 13))
-	var min = parseInt(time.substring(14, 16))
-	return [month, day, hour, min]
+  let month = parseInt(time.substring(5, 7));
+  let day = parseInt(time.substring(8, 10));
+  let hour = parseInt(time.substring(10, 13));
+  let min = parseInt(time.substring(14, 16));
+  return { month: month, day: day, hour: hour, min: min };
 }
 
+// category lists utility
+const fruit_category = ["Apple", "Watermelon"];
+const vegie_category = ["Broccoli", "Carrot", "Eggplant"];
+let vegie_count = 0;
+let fruit_count = 0;
+let fruitList = [];
+let vegieList = [];
+isFruit = name => fruit_category.includes(name);
+isVegie = name => vegie_category.includes(name);
+constructLists = (name, times) => {
+  let putin = parseTime(times.putinDate);
+  let putout = times.putoutDate !== "No" ? parseTime(times.putoutDate) : null;
+  let newItem = {
+    name: name,
+    putin: putin,
+    putout: putout
+  };
+  if (isFruit(name)) {
+    fruit_count++;
+    fruitList.push(newItem);
+  } else if (isVegie(name)) {
+    vegie_count++;
+    vegieList.push(newItem);
+  }
+};
+constructNode = name => {
+  name = name.toLowerCase();
 
-inventory_ref.once('value').then(function(dataSnapshot) {
+  let newDiv = document.createElement("div");
+  let newImg = document.createElement("img");
+  newImg.src = "../pics/" + name + ".png";
+  newImg.style.width = "48px";
+  newImg.style.height = "48px";
+  newDiv.className = "inventory_item";
+  newDiv.style.marginBottom = "8px";
+  newDiv.appendChild(newImg);
 
-	var list = dataSnapshot.val();
+  return newDiv;
+};
 
-	var fruit_count = 0;
-	var veg_count = 0;
+// render 1: Full Inventory List
+addToListView = () => {
+  fruitList.map(item => {
+    document.getElementById("fruit_list").appendChild(constructNode(item.name));
+    document.getElementById("fruitNum").innerHTML = fruit_count + " types";
+  });
+  vegieList.map(item => {
+    document.getElementById("vegie_list").appendChild(constructNode(item.name));
+    document.getElementById("vegieNum").innerHTML = vegie_count + " types";
+  });
+};
 
-	var fruit_category = [ "Apple", "Watermelon"]
-	var veg_category = ["Broccoli", "Carrot", "Eggplant"]
+//render 2 : Suggest to eat soon
 
-	var fruit_orginal_list = []
-	var veg_original_list = []
+render = () => {
+  addToListView();
+};
 
-	var fruit_list = document.getElementById("fruit_list")
-	for (var item in list) {
-
-		var putinDate = list[item].putinDate
-		var putoutDate = list[item].putoutDate
-
-		var timeArray = parseTime(putinDate)
-		console.log(timeArray[1])
-
-		var newnode = document.createTextNode(item + "\n")
-		fruit_list.appendChild(newnode)
-		console.log(fruit_list)
-	}
-
-	for (var item in list) {
-		if (fruit_category.includes(item) )  {
-			fruit_count += 1 ;
-			/* getElementById   set span of speicific paragraph */
-			fruit_original_list.push(item);
-			/* for fruit in fruit_original_list create element div, create element fruit_text, create corresponding_img, apeend text to div, append img to div, append div to fruit_list*/
-		}
-		else if (veg_category.includes(item)) {
-			veg_count += 1 ;
-			/* same for veg*/
-		}	
-	}
-
-}
-
-
-/*window.onload = function() {
-	var chart = new CanvasJS.Chart("chartContainer", {
-		title: {
-			text: "",
-			verticalAlign: 'top',
-			horizontalAlign: 'center'
-		},
-		animationEnabled: true,
-		data: [{
-			type: "doughnut",
-			startAngle: 0,
-			toolTipContent: "{label}: {y} - <strong>#percent%</strong>",
-			indexLabel: "{label} #percent%",
-			dataPoints: [{
-				y: 67,
-				label: "Inbox"
-			}, {
-				y: 28,
-				label: "Archives"
-			}, {
-				y: 10,
-				label: "Labels"
-			}, {
-				y: 7,
-				label: "Drafts"
-			}, {
-				y: 4,
-				label: "Trash"
-			}]
-		}]
-	});
-	chart.render();
-}*/
+inventory_ref.once("value").then(dataSnapshot => {
+  let list = dataSnapshot.val();
+  let names = Object.keys(list);
+  names.forEach(
+    name => {
+      constructLists(name, list[name]);
+    },
+    this
+  );
+  render();
+});

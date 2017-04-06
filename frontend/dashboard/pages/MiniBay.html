@@ -3,19 +3,19 @@
 
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dashboard for MiniBay">
-    <meta name="author" content="Team404 Datavizards">
-    <title>MiniBay</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Dashboard for MiniBay">
+	<meta name="author" content="Team404 Datavizards">
+	<title>MiniBay</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap Core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Main CSS -->
-    <link href="../dist/css/MiniBay.css" rel="stylesheet">
+	<!-- Main CSS -->
+	<link href="../dist/css/MiniBay.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- Custom Fonts -->
+	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" src="../dist/js/Chart.js"></script>
 
@@ -57,7 +57,7 @@
 
 <body>
 	<div class="wrapper">
-		<nav  class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #343434 ;">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #343434 ;">
 			<div class="navbar-header">
 				<a href="" class="navbar-brand" style="color: white;"><img src="">MiniBay</a>
 			</div>
@@ -78,108 +78,98 @@
 					<div class="card-nutrition">
 						<div class="nutrition-title">
 							<div class="nutrition-title-image"><img src="../dist/photos/cards-image.png"></div>
-							<div class="nutrition-subtitle"><p>Nutrition<br>Based on recommended nutrition per day.</p></div>
+							<div class="nutrition-subtitle">
+								<p>Nutrition<br>Based on recommended nutrition per day.</p>
+							</div>
 						</div>
 						<div class="nutrition-content">
-							<div class="nutrition-item" >
+							<div class="nutrition-item">
 								<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 								<div>Nutrition category</div>
-								<div id="chartContainer" style="height: 100px; width: 100%"></div>			
+								<div id="chartContainer" style="height: 100px; width: 100%"></div>
 							</div>
 							<div class="nutrition-item">
 								<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 								<div>Nutrition category</div>
-								<div id="chartContainer" style="height: 100px; width: 100%"></div>			
+								<div id="chartContainer" style="height: 100px; width: 100%"></div>
 							</div>
 							<div class="nutrition-item">
 								<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
 								<div>Nutrition category</div>
-								<div id="chartContainer" style="height: 100px; width: 100%"></div>			
+								<div id="chartContainer" style="height: 100px; width: 100%"></div>
 							</div>
 
 						</div>
-					</div>					
+					</div>
 
 					<div class="card-nutrition">
 						<div class="nutrition-title">
 							<div class="nutrition-title-image"><img src="../dist/photos/cards-image.png"></div>
 							<div class="nutrition-subtitle">
-							<p>Suggestions<br>Based on the nutrition report, here are our suggestions.</p>
+								<p>Suggestions<br>Based on the nutrition report, here are our suggestions.</p>
 							</div>
 						</div>
 						<div class="nutrition-content">
 							<div class="nutrition-item"><img src="../dist/photos/cards-image.png"></div>
-						</div>	
+						</div>
 					</div>
 				</div>
 
 				<div class="inventory-list">
 					<div class="card-title">
 						<p>Inventory List</p>
-					</div>	
+					</div>
 
 					<div class="card-inventory">
-						<div class="inventory-subtitle"><p >Suggest to eat soon</p></div>
-						<div class="suggest-to-eat"">
-							<div class="suggest-item">
-								<img src="../dist/photos/cards-image.png">
+						<div class="inventory-subtitle">
+							<p>Suggest to eat soon</p>
+						</div>
+						<div class="suggest-to-eat" ">
+							<div class="suggest-item ">
+								<img src="../dist/photos/cards-image.png ">
 								<p>{{n_days}}left</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="card-inventory">
-						<div class="inventory-subtitle"><p>Full Inventory List</p></div>
+					<div class="card-inventory ">
+						<div class="inventory-subtitle "><p>Full Inventory List</p></div>
 						<div>
-							<div class="inventory-subtitle2">
-								<div class="num_item"><p>{{num_item}} Items</p></div>							
-								<div class="sublist_name"><p>Fruits</p></div>
+							<div class="inventory-subtitle2 ">
+								<div class="num_item "><p id="fruitNum"></p></div>							
+								<div class="sublist_name "><p> Fruits</p></div>
 							</div>
-							<div  id="fruit_list" class="fruit_list">
-								<div class="inventory_item">
-									<img src="../dist/photos/cards-image.png">
-									<p>nutrition-left: 20%</p>
-								</div>
-								<div class="inventory_item">
-									<img src="../dist/photos/cards-image.png">
-									<p>nutrition-left: 20%</p>
-								</div>								
+							<div  id="fruit_list" class="fruit_list ">
+															
 							</div>
 						</div>		
 						<div>
-							<div class="inventory-title">
-								<div class="inventory-subtitle2">
-								<div class="num_item"><p>{{num_item}} Items</p></div>							
-								<div class="sublist_name"><p>Veggies</p></div>
+							<div class="inventory-title ">
+								<div class="inventory-subtitle2 ">
+								<div class="num_item "><p id="vegieNum"></p></div>							
+								<div class="sublist_name "><p>Veggies</p></div>
 								</div>
 							</div>
-							<div id="veg_list" class="veg_list">
-								<div class="inventory_item">
-									<img src="../dist/photos/cards-image.png">
-									<p>nutrition-left: 20%</p>
-								</div>
-								<div class="inventory_item">
-									<img src="../dist/photos/cards-image.png">
-									<p>nutrition-left: 20%</p>
-								</div>	
+							<div id="vegie_list" class="veg_list ">
+								
 							</div>
 						</div>												
 					</div>
 
-					<div class="card-inventory">
-						<div class="inventory-subtitle"><p>Recommended Dishes</p></div>
-						<div class="suggest_menu">
-							<div class="menu_img">
-								<img src="../dist/photos/cards-image.png">
+					<div class="card-inventory ">
+						<div class="inventory-subtitle "><p>Recommended Dishes</p></div>
+						<div class="suggest_menu ">
+							<div class="menu_img ">
+								<img src="../dist/photos/cards-image.png ">
 							</div>
 							<div>
 								<p>{{dish_name}}</p>
 								<p>{{description}}</p>
 							</div>
 						</div>
-						<div class="suggest_menu">
-							<div class="menu_img">
-								<img src="../dist/photos/cards-image.png">
+						<div class="suggest_menu ">
+							<div class="menu_img ">
+								<img src="../dist/photos/cards-image.png ">
 							</div>
 							<div>
 								<p>{{dish_name}}</p>
