@@ -1,0 +1,255 @@
+
+/* general */
+
+body {
+  background-color: #f8f8f8;
+}
+#wrapper {
+  width: 100%;
+}
+#page-wrapper {
+  padding: 0 15px;
+  min-height: 568px;
+  background-color: white;
+}
+
+
+/* sidebar */
+.sidebar {
+  background-color: 
+}
+
+.sidebar .sidebar-nav.navbar-collapse {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .sidebar-search {
+  padding: 15px;
+}
+
+.sidebar ul li {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.sidebar ul li a.active {
+  background-color: #eeeeee;
+}
+
+.sidebar .arrow {
+  float: right;
+}
+
+.sidebar .fa.arrow:before {
+  content: "\f104";
+}
+
+.sidebar .active > a > .fa.arrow:before {
+  content: "\f107";
+}
+
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+  border-bottom: none !important;
+}
+
+.sidebar .nav-second-level li a {
+  padding-left: 37px;
+}
+
+.sidebar .nav-third-level li a {
+  padding-left: 52px;
+}
+
+.sidebar {
+  z-index: 1;
+  position: absolute;
+  width: 15%;
+  margin-top: 0px;
+}
+
+/* cards */
+.cards {
+  width: 85%;
+  height: 100%;
+  margin-left: 15%;
+  position: relative;
+  padding: 0 2%;
+}
+
+.card-title {
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 20px 0 20px;
+}
+
+.nutrition-report {
+  width: 55%;
+  float: left;
+}
+
+.inventory-list {
+  width: 45%;
+  float: left;
+  padding-left: 20px;
+}
+
+
+.card-nutrition {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  background-color: white;
+  float: none;
+}
+
+.card-inventory {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  background-color: white;
+
+}
+
+.nutrition-title {
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: left;
+}
+
+.nutrition-title-image {
+  margin: 10px 20px 0px 20px;
+}
+
+.nutrition-content {
+  margin-left: 21%;
+  display: flex;
+
+}
+
+.nutrition-item {
+  width: 20%;
+  justify-content: center;
+  text-align: center;
+
+  /*display: inline-block;*/
+}
+
+.nutrition-subtitle {
+  width: 75%;
+  font-size: 20px;
+  font-family: inherit;
+  line-height: 1.1;
+  margin: 20px 0px ;
+  border-bottom: 1px solid #eee;
+}
+
+.inventory-title {
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: left;
+}
+
+.inventory-subtitle {
+  width: 96%;
+  font-size: 20px;
+  font-family: inherit;
+  line-height: 1.1;
+  margin: 10px ;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0px 0px 10px;
+
+}
+
+.inventory-subtitle2 {
+  width: 96%;
+  font-size: 16px;
+  font-family: inherit;
+  line-height: 1.1;
+  margin: 10px ;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0px 0px 10px;
+}
+
+.inventory-category {
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: left;
+          justify-content: left;  
+}
+
+.suggest-to-eat {
+  width: 96%;
+  margin-left: 20px;
+   display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: left;
+          justify-content: left;  
+ 
+}
+
+.suggest-item {
+  width: 20%;
+  text-align: center;
+}
+
+.num_item {
+      float: right;
+}
+
+.fruit_list {
+  width: 96%;
+  margin-left: 20px;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: left;
+          justify-content: left;  
+}
+
+.veg_list {
+  width: 96%;
+  margin-left: 20px;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: left;
+          justify-content: left;  
+}
+
+.inventory_item {
+  width: 20%;
+  text-align: center;  
+}
+
+.suggest_menu {
+  margin: 10px 20px;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: left;
+          justify-content: left;  
+}
+
+.menu_img {
+    padding: 0 10 10 0px
+}
+
+span.line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #d9d9d9;
+    bottom: -20px;
+}
