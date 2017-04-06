@@ -155,9 +155,7 @@ var newSessionHandlers = {
 
 
             if (putoutDate == "No") {
-                // var daysBefore = Math.round((today - tempItem.lastInTime) / msPerDay);
-                // var bestBefore = Math.round((tempItem.bestBefore - today) / msPerDay);
-                // var freshness = Math.round(5 * (tempItem.bestBefore - today) / (msPerDay * tempItem.durationTime));
+                
                 if (freshness > 2) {
 
                     this.emit(':ask', 'You bought ' + itemName + ' ' + daysBefore + ' days ago,' + ' It is still very fresh. ' + 'What else can I help you?');
@@ -181,9 +179,6 @@ var newSessionHandlers = {
         var array = " ";
         fbGet("/inventory").then(res => {
 
-            // var fbObject = JSON.parse(res);
-            // var key = "Apple";
-            // var tempDate =  res[key].putinDate;
             var keys = Object.keys(res);
             for (var i = 0; i < keys.length; i++) {
                 if (res[keys[i]].putoutDate == "No") {
@@ -192,7 +187,7 @@ var newSessionHandlers = {
                         array = array.concat(keys[i], ",");
                     }
                 }
-                // array  = array.concat(keys[i],",");
+               
             }
             this.emit(':ask', 'You have ' + array + ' What else can I help you with?');
         });
@@ -219,7 +214,7 @@ var newSessionHandlers = {
                         if (daysAfter < minTime) {
                             minTime = daysAfter;
                             suggestedFood = tempName;
-                            // bestBefore = Math.round(tempItem.durationTime - (today - putinDate) / msPerDay);
+                           
                         }
                     }
                 }
@@ -249,11 +244,7 @@ var newSessionHandlers = {
 };
 
 var Item = function(name) {
-    // var today = new Date();
-    // var time1 = new Date('7, March, 2017');
-    // var time4 = new Date('1, March, 2017');
-    // var time2 = new Date('1, march, 2017');
-    // var time3 = new Date('12, March, 2017');
+   
     var durationTime;
     var putinDate;
     var putoutDate;
@@ -265,46 +256,5 @@ var Item = function(name) {
     var contents = fs.readFileSync("test.json");
     var obj = JSON.parse(contents);
     this.durationTime = obj[name].expireDays;
-
-
-
-
-
-
-    // this.name = name;
-    // this.status = true;
-    // this.lastInTime = time1;
-    // this.lastOutTime = time2;
-    // this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
-
-
-
-    // } else if (name == "chickenbreast") {
-
-    //     this.durationTime = 7;
-    //     this.name = name;
-    //     this.status = true;
-    //     this.lastInTime = time2;
-    //     this.lastOutTime = time3;
-    //     this.bestBefore = new Date(time1.getTime() + this.durationTime * 3600 * 24 * 1000);
-
-
-    // } else if (name == "orange") {
-
-    //     this.durationTime = 4;
-    //     this.name = name;
-    //     this.status = true;
-    //     this.lastInTime = time4;
-    //     this.lastOutTime = time3;
-    //     this.bestBefore = new Date(time4.getTime() + this.durationTime * 3600 * 24 * 1000);
-
-
-    // } else {
-
-    //     this.name = name;
-    //     this.status = false;
-
-    // }
-
 
 }
