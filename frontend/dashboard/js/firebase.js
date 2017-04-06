@@ -21,18 +21,10 @@ function loadJSON(path ,callback) {
     };
     xobj.send(null);  
  }
-
+let nutrtionData = null;
 loadJSON("../nutrition.json", (responseText) => {
-        data = JSON.parse(responseText);
-		console.log(data)
+        nutrtionData = JSON.parse(responseText);
 })
-
-
-// $.getJSON('../nutrition.json').done(json => {console.log(json)})
-
-
-// let nutrition = JSON.parse();
-// console.log(nutrition)
 
 firebase.initializeApp(config);
 let database = firebase.database();
@@ -100,7 +92,9 @@ addToListView = () => {
 
 //render 2 : Suggest to eat soon
 addToEatSoonView = () => {
-
+	if(nutrtionData) {
+		console.log(nutrtionData)
+	}
 }
 
 //render 3: Recommended Dishes
