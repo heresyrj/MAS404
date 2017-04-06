@@ -12,7 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +50,7 @@ public class Inventory_Detail extends AppCompatActivity {
     private TextView addedDate;
     private TextView bestBefore;
     private ListView nutritionListView;
+    private LinearLayout nutritionLinearLayout;
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     DatabaseReference mRef = db.getReference();
@@ -70,6 +73,7 @@ public class Inventory_Detail extends AppCompatActivity {
         addedDate = (TextView)findViewById(R.id.addDate);
         bestBefore = (TextView)findViewById(R.id.bestBefore);
         nutritionListView = (ListView) findViewById(R.id.nutrition_list_view);
+        nutritionLinearLayout = (LinearLayout) findViewById(R.id.nutrition_items_layout);
 
         send_reminder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_emphasis));
         add_shopping.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_normal));
@@ -144,17 +148,21 @@ public class Inventory_Detail extends AppCompatActivity {
                 long usedDays = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
                 long percentage = (expireDays - usedDays) * 100 / expireDays;
                 if (percentage < 0) {
-                    freshness.setText("Expired!!!!!!!");
+                    freshness.setText("0%");
+                    freshness.setTextColor(getResources().getColor(R.color.bayError));
                 } else {
-                    freshness.setText("Freshness      "+percentage+"%");
+                    freshness.setText(percentage + "%");
                 }
-                SimpleDateFormat format1 =  new SimpleDateFormat("yyyy-MM-dd");
-                addedDate.setText("Add at            "+format1.format(putinDate));
+
+                SimpleDateFormat format1 =  new SimpleDateFormat("MMM dd");
+                addedDate.setText(format1.format(putinDate));
+
                 Calendar dateputin = Calendar.getInstance();
                 dateputin.setTime(putinDate);
                 dateputin.add(Calendar.DATE, expireDays);
+
                 Date bestBeforeDate = dateputin.getTime();
-                bestBefore.setText("Best Before          "+format1.format(bestBeforeDate));
+                bestBefore.setText(format1.format(bestBeforeDate));
             }
 
             @Override
@@ -166,16 +174,45 @@ public class Inventory_Detail extends AppCompatActivity {
         String fileName = "nutrition.json";
         ArrayList<String> nutritionlist = new ArrayList<>();
         try {
+            // Read content from JSON File
             JSONObject jsonObject = new JSONObject(loadJSONFromAsset(fileName));
             JSONObject curObject = jsonObject.getJSONObject(curItem.toLowerCase());
             JSONObject nutritionObj = curObject.getJSONObject("nutrition");
             Map<String, String> nutritionMap = new HashMap<>();
             parse(nutritionObj, nutritionMap);
+
+            // Add views for nutritionLinearLayout
+
             for (String key : nutritionMap.keySet()) {
+
+                TextView key_textView = new TextView(this);
+                TextView nutrition_value = new TextView(this);
+
+                key_textView.setText(key);
+                key_textView.setTextAppearance(this, R.style.itemCardText);
+                nutrition_value.setText(nutritionMap.get(key) + " mg");
+                nutrition_value.setTextAppearance(this, R.style.nutriCardNum);
+
+                // Need to fix relative layout problem!!
+                RelativeLayout rowRelativeLayout = new RelativeLayout(this);
+                RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT
+                );
+                params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+                nutrition_value.setLayoutParams(params1);
+
+                rowRelativeLayout.addView(key_textView);
+                rowRelativeLayout.addView(nutrition_value);
+
+
+                nutritionLinearLayout.addView(rowRelativeLayout);
+
+
                 String temp = key + "         " + nutritionMap.get(key) + " mg ";
                 nutritionlist.add(temp);
             }
-            nutritionListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, nutritionlist));
+//            nutritionListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, nutritionlist));
 
 
         } catch (Exception e) {

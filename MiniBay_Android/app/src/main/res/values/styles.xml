@@ -126,5 +126,52 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Item card details -->
+    <style name="itemCardTitle">
+        <item name="android:textSize"> 16dp </item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="itemCardNum">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="itemCardText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="itemCardDate">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="nutritionInfoTitle">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="nutriCardNum">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
 
 </resources>
