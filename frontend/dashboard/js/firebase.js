@@ -73,9 +73,31 @@ addToListView = () => {
 };
 
 //render 2 : Suggest to eat soon
+addToEatSoonView = () => {
+
+}
+
+//render 3: Recommended Dishes
+addToRecDishView = () => {
+
+}
+
+//render 4: Nutrition Summary
+addToNuritionView = () => {
+
+}
+
+//render 5: Nutrition Suggestion
+addToNuritionSuggestionView = () => {
+
+}
 
 render = () => {
   addToListView();
+  addToEatSoonView();
+  addToRecDishView();
+  addToNuritionView();
+  addToNuritionSuggestionView();
 };
 
 inventory_ref.once("value").then(dataSnapshot => {
