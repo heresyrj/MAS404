@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Dashboard for MiniBay">
+	<meta name="author" content="Team404 Datavizards">
+	<title>MiniBay</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet">
+
+	<!-- Main CSS -->
+	<link href="../dist/css/MiniBay.css" rel="stylesheet">
+
+	<script type="text/javascript" src="../dist/js/Chart.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+	<script type="text/javascript" src="../js/firebase.js"></script>
+</head>
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h1>MiniBay</h1>
+            <img src="../dist/photos/generalInformation.png" style="width: 100%">
+        </aside>
+        <main class="content">
+            <div class="nutrition-report">
+                <h2>Nutrition Report</h2>
+                <section class="card">
+                    <header class="card-header">
+                        <h3 class="card-title">Daily Summary</h3>
+                        <p class="card-subtitle">Based on recommended nutrition per day</p>
+                        <div class="control right">
+                            <a class="button" href="#">Customize</a>
+                        </div>
+                    </header>
+                    <div class="daily-charts"></div>
+                    <div class="card-extra">
+                        <h3 class="card-title">Nutrition Suggestions</h3>
+                        <p class="card-subtitle">Based on the nutrition report, here are our suggestions.</p>
+                        <div id="suggestion-list">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="inventory-list">
+                <h2>Inventory List</h2>
+                <section class="card">
+                    <header class="card-header">
+                        <h3 class="card-title">Eat Soon</h3>
+                    </header>
+                    <div id="eat-soon-list"></div>
+                </section>
+                <section class="card">
+                    <header class="card-header">
+                        <h3 class="card-title">Full Inventory List</h3>
+                    </header>
+                    <div id="inventory-list"></div>
+                </section>
+                <section class="card">
+                    <header class="card-header">
+                        <h3 class="card-title">Recipes Selected for You</h3>
+                    </header>
+                    <div id="recipe-list"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
