@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,181 +8,73 @@
 	<meta name="author" content="Team404 Datavizards">
 	<title>MiniBay</title>
 
-	<!-- Bootstrap Core CSS -->
-	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet">
+
+    <!-- Icon font -->
+    <link href="minibay-iconfont/css/minibay-iconfont.css" rel="stylesheet">
 
 	<!-- Main CSS -->
-	<link href="../dist/css/MiniBay.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 
-	<!-- Custom Fonts -->
-	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	
-	<script type="text/javascript" src="../dist/js/Chart.js"></script>
+	<script type="text/javascript" src="js/Chart.js"></script>
 
 	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-	<script type="text/javascript" src="../js/firebase.js"></script>
-
-	
-
-	<!-- <script type="text/javascript">
-		var ctx = document.getElementById("myChart");
-		var data = {
-		    labels: [
-		        "Red",
-		        "Blue",
-		        "Yellow"
-		    ],
-		    datasets: [
-		        {
-		            data: [300, 50, 100],
-		            backgroundColor: [
-		                "#FF6384",
-		                "#36A2EB",
-		                "#FFCE56"
-		            ],
-		            hoverBackgroundColor: [
-		                "#FF6384",
-		                "#36A2EB",
-		                "#FFCE56"
-		            ]
-		        }]
-		};		
-		var myChart = new Chart(ctx, {
-		    type: 'doughnut',
-		    data: data,
-		});
-		</script>
-		-->
-
+	<script type="text/javascript" src="js/firebase.js"></script>
 </head>
 
 <body>
-	<div class="wrapper">
-		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #343434 ;">
-			<div class="navbar-header">
-				<a href="" class="navbar-brand" style="color: white;"><img src="">MiniBay</a>
-			</div>
-		</nav>
-
-		<div class="content">
-			<div class="sidebar">
-				<img src="../dist/photos/generalInformation.png" style="width: 100%">
-
-			</div>
-
-			<div class="cards">
-				<div class="nutrition-report">
-					<div class="card-title">
-						<p>Nutrition Report</p>
-					</div>
-
-					<div class="card-nutrition">
-						<div class="nutrition-title">
-							<div class="nutrition-title-image"><img src="../dist/photos/cards-image.png"></div>
-							<div class="nutrition-subtitle">
-								<p>Nutrition<br>Based on recommended nutrition per day.</p>
-							</div>
-						</div>
-						<div class="nutrition-content">
-							<div class="nutrition-item">
-								<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-								<div>Nutrition category</div>
-								<div id="chartContainer" style="height: 100px; width: 100%"></div>
-							</div>
-							<div class="nutrition-item">
-								<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-								<div>Nutrition category</div>
-								<div id="chartContainer" style="height: 100px; width: 100%"></div>
-							</div>
-							<div class="nutrition-item">
-								<!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-								<div>Nutrition category</div>
-								<div id="chartContainer" style="height: 100px; width: 100%"></div>
-							</div>
-
-						</div>
-					</div>
-
-					<div class="card-nutrition">
-						<div class="nutrition-title">
-							<div class="nutrition-title-image"><img src="../dist/photos/cards-image.png"></div>
-							<div class="nutrition-subtitle">
-								<p>Suggestions<br>Based on the nutrition report, here are our suggestions.</p>
-							</div>
-						</div>
-						<div class="nutrition-content">
-							<div class="nutrition-item"><img src="../dist/photos/cards-image.png"></div>
-						</div>
-					</div>
-				</div>
-
-				<div class="inventory-list">
-					<div class="card-title">
-						<p>Inventory List</p>
-					</div>
-
-					<div class="card-inventory">
-						<div class="inventory-subtitle">
-							<p>Suggest to eat soon</p>
-						</div>
-						<div class="suggest-to-eat" ">
-							<div class="suggest-item ">
-								<img src="../dist/photos/cards-image.png ">
-								<p>{{n_days}}left</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="card-inventory ">
-						<div class="inventory-subtitle "><p>Full Inventory List</p></div>
-						<div>
-							<div class="inventory-subtitle2 ">
-								<div class="num_item "><p id="fruitNum"></p></div>							
-								<div class="sublist_name "><p> Fruits</p></div>
-							</div>
-							<div  id="fruit_list" class="fruit_list ">
-															
-							</div>
-						</div>		
-						<div>
-							<div class="inventory-title ">
-								<div class="inventory-subtitle2 ">
-								<div class="num_item "><p id="vegieNum"></p></div>							
-								<div class="sublist_name "><p>Veggies</p></div>
-								</div>
-							</div>
-							<div id="vegie_list" class="veg_list ">
-								
-							</div>
-						</div>												
-					</div>
-
-					<div class="card-inventory ">
-						<div class="inventory-subtitle "><p>Recommended Dishes</p></div>
-						<div class="suggest_menu ">
-							<div class="menu_img ">
-								<img src="../dist/photos/cards-image.png ">
-							</div>
-							<div>
-								<p>{{dish_name}}</p>
-								<p>{{description}}</p>
-							</div>
-						</div>
-						<div class="suggest_menu ">
-							<div class="menu_img ">
-								<img src="../dist/photos/cards-image.png ">
-							</div>
-							<div>
-								<p>{{dish_name}}</p>
-								<p>{{description}}</p>
-							</div>
-						</div>													
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
+    <div class="dashboard clearfix">
+        <aside class="sidebar">
+            <div class="app-title">
+                <h1>MiniBay</h1>
+            </div>
+            <div class="hero">
+                <img src="img/generalInformation.png" style="width: 100%">
+            </div>
+        </aside>
+        <main class="main">
+            <div class="nutrition-report">
+                <h2 class="col-title">Nutrition Report</h2>
+                <section class="card">
+                    <header class="card-header">
+                        <h3 class="card-title">Daily Summary</h3>
+                        <p class="card-subtitle">Based on recommended nutrition per day</p>
+                        <a class="btn btn-customize" href="#">Customize <i class="icon-sliders"></i></a>
+                    </header>
+                    <div class="daily-charts" id="daily-charts"></div>
+                    <div class="card-extra">
+                        <h3 class="card-title">Nutrition Suggestions</h3>
+                        <p class="card-subtitle">Based on the nutrition report, here are our suggestions.</p>
+                        <div id="suggestion-list">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="inventory-list">
+                <h2 class="col-title">Inventory List</h2>
+                <div class="flex-vertical-wrap">
+                    <section class="card">
+                        <header class="card-header">
+                            <h3 class="card-title">Eat Soon</h3>
+                        </header>
+                        <div id="eat-soon-list"></div>
+                    </section>
+                    <section class="card">
+                        <header class="card-header">
+                            <h3 class="card-title">Full Inventory List</h3>
+                        </header>
+                        <div id="inventory-list"></div>
+                    </section>
+                    <section class="card">
+                        <header class="card-header">
+                            <h3 class="card-title">Recipes Selected for You</h3>
+                        </header>
+                        <div id="recipe-list"></div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
-
 </html>

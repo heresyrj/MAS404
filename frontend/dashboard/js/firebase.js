@@ -50,6 +50,11 @@ isVegie = name => vegie_category.includes(name);
 constructLists = (name, times) => {
   let putin = parseTime(times.putinDate);
   let putout = times.putoutDate !== "No" ? parseTime(times.putoutDate) : null;
+
+  if(putout == null) {
+
+  }
+
   let newItem = {
     name: name,
     putin: putin,
@@ -129,5 +134,5 @@ inventory_ref.once("value").then(dataSnapshot => {
     },
     this
   );
-  render();
+  // render();
 });

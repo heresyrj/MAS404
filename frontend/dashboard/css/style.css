@@ -1,0 +1,134 @@
+/* Reset CSS */
+html {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  overflow: hidden; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+a {
+  text-decoration: none; }
+
+/****
+ * Variables 
+ ****/
+/* colors */
+/* Layout */
+/* Utility Helpers */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.right {
+  float: right; }
+
+/****
+ * Components 
+ ****/
+.btn-customize {
+  display: inline-block;
+  height: 36px;
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 0 4px -1px rgba(35, 35, 35, 0.12), 0 4px 6px -2px rgba(3, 18, 9, 0.12);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: rgba(35, 35, 35, 0.8);
+  transition: all 0.3s ease; }
+  .btn-customize:hover {
+    box-shadow: 0 0 12px -3px rgba(3, 18, 9, 0.08), 0 10px 16px -2px rgba(3, 18, 9, 0.12); }
+
+/* Global */
+body {
+  font-family: 'Source Sans Pro', "Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-color: #F1F3F2;
+  color: #232323; }
+
+.dashboard {
+  height: 100%; }
+
+/* Sidebar */
+.sidebar {
+  float: left;
+  height: 100%;
+  width: 15%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.app-title {
+  flex-grow: 1;
+  padding: 16px;
+  background-color: #343434;
+  color: #fff;
+  font-size: 1.6em; }
+
+/* Main Content */
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px;
+  height: 100%; }
+  .main > *:first-child {
+    flex-grow: 1;
+    margin-right: 32px; }
+
+.col-title {
+  font-size: 1.25em;
+  font-weight: 300;
+  margin-bottom: 32px; }
+
+/* Card */
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.12), 0 0 6px -2px rgba(0, 0, 0, 0.08);
+  padding: 32px; }
+  .card .card-header {
+    position: relative; }
+    .card .card-header .btn {
+      position: absolute;
+      top: 0;
+      right: 0; }
+  .card .card-title {
+    font-size: 32px;
+    font-weight: 700; }
+  .card .card-subtitle {
+    font-size: 16px;
+    color: rgba(35, 35, 35, 0.4); }
+  .card .card-extra {
+    margin-top: 32px;
+    background-color: #20C164;
+    margin-left: -32px;
+    margin-right: -32px;
+    margin-bottom: -32px;
+    padding: 32px; }
+    .card .card-extra .card-title {
+      color: #fff; }
+
+/* Inventory List */
+.flex-vertical-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .flex-vertical-wrap .card:not(last-child) {
+    margin-bottom: 32px; }
+  .flex-vertical-wrap .card:nth-child(2) {
+    flex-grow: 1; }
+
+/*# sourceMappingURL=style.css.map */
