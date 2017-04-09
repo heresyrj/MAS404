@@ -90,26 +90,106 @@ constructNode = name => {
 let getChartWidth = () => {
     const containerWidth = document.getElementById("nutrition-report").offsetWidth - 64;
     console.log(containerWidth);
-    return containerWidth / 2 * 0.8;
+    return containerWidth / 2 * 0.5;
 }
 
 // render 1: Full Inventory List
 addToListView = () => {
-  fruitList.map(item => {
-    document.getElementById("fruit_list").appendChild(constructNode(item.name));
-    document.getElementById("fruitNum").innerHTML = fruit_count + " types";
-  });
-  vegieList.map(item => {
-    document.getElementById("vegie_list").appendChild(constructNode(item.name));
-    document.getElementById("vegieNum").innerHTML = vegie_count + " types";
-  });
+    console.log("hello");
+    const data = [
+        {
+            name: "Fruits",
+            list: [
+                {
+                    name: "apple",
+                    quan: 3
+                },
+                {
+                    name: "banana",
+                    quan: 4
+                },
+                {
+                    name: "watermelon",
+                    quan: 1
+                }
+            ]
+        },
+        {
+            name: "Vegatables",
+            list: [
+                {
+                    name: "broccoli",
+                    quan: 2
+                },
+                {
+                    name: "carrot",
+                    quan: 4
+                },
+                {
+                    name: "eggplant",
+                    quan: 1
+                }
+            ]
+        }
+    ];
+
+    data.forEach(category => {
+        let categoryItem = document.createElement("div");
+        let categoryInner = `
+            <header>
+                <h4>${category.name}</h4>
+                <p><span class="number">${category.list.reduce((value, item) => {
+                    return item.quan + value;
+                },0)}</span> items</p>
+            </header>
+            <ul class="flex-wrap">
+                ${
+                    category.list.map(item => {
+                        return `
+                            <li class="size-thumb relative">
+                                <img src="img/${item.name}.png">
+                                <span class="dot">${item.quan}</span>
+                            </li>
+                        `;
+                    }).join("")
+                }
+            </ul>
+        `;
+        categoryItem.className = "category-list";
+        categoryItem.innerHTML = categoryInner;
+
+        document.getElementById("inventory-list").appendChild(categoryItem);
+    });
 };
 
 //render 2 : Suggest to eat soon
 addToEatSoonView = () => {
-	if(nutrtionData) {
-		console.log(nutrtionData)
-	}
+	const data = [
+        {
+            name: "apple",
+            days: 3
+        },
+        {
+            name: "banana",
+            days: 5
+        },
+        {
+            name: "eggplant",
+            days: 5
+        }
+    ];
+
+    data.forEach(item => {
+        let soonItem = document.createElement("li");
+        const innerEl = `
+            <img src="img/${item.name}.png">
+            <p class="center ${(item.days <=3)?"red":"grey"}">${item.days} days left</p>
+        `;
+        soonItem.className = "size-thumb large";
+        soonItem.innerHTML = innerEl;
+
+        document.getElementById("eat-soon-list").appendChild(soonItem);
+    });
 }
 
 //render 3: Recommended Dishes
@@ -137,7 +217,7 @@ addToNuritionView = () => {
         },
         {
             name: "Vitamin C",
-             consumed: 75,
+             consumed: 65,
             recommended: 90
         }
     ];
@@ -181,8 +261,8 @@ addToNuritionSuggestionView = () => {
 }
 
 render = () => {
-//   addToListView();
-//   addToEatSoonView();
+  addToListView();
+  addToEatSoonView();
 //   addToRecDishView();
   addToNuritionView();
   addToNuritionSuggestionView();
@@ -203,22 +283,5 @@ $(document).ready(function () {
         );
         render();
     });
-    $('.chart').easyPieChart({
-        //your options goes here
-        scaleColor: false,
-        scaleLength: 0,
-        barColor: "#20C164",
-        lineWidth: 10,
-        lineCap: "round",
-        size: 160
-    });
-    $('.chart-red').easyPieChart({
-        //your options goes here
-        scaleColor: false,
-        scaleLength: 0,
-        barColor: "#F67623",
-        lineWidth: 10,
-        lineCap: "round",
-        size: 160
-    });
+  
 });

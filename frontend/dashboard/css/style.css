@@ -42,6 +42,20 @@ img {
 .size-thumb {
   width: 64px;
   height: auto; }
+  .size-thumb.large {
+    width: 80px; }
+
+.center {
+  text-align: center; }
+
+.red {
+  color: #F67623; }
+
+.grey {
+  color: rgba(35, 35, 35, 0.4); }
+
+.relative {
+  position: relative; }
 
 /****
  * Components 
@@ -61,6 +75,38 @@ img {
   transition: all 0.3s ease; }
   .btn-customize:hover {
     box-shadow: 0 0 12px -3px rgba(3, 18, 9, 0.08), 0 10px 16px -2px rgba(3, 18, 9, 0.12); }
+
+.dot {
+  position: absolute;
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 4px;
+  background-color: #20C164;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 20px;
+  color: #fff;
+  top: 4px;
+  right: -10px;
+  box-shadow: 0 2px 2px rgba(35, 35, 35, 0.2); }
+
+/* Layout */
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap; }
+  .flex-wrap > *:not(last-child) {
+    margin-right: 32px; }
+  .flex-wrap.vertical {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between; }
+    .flex-wrap.vertical > *:not(last-child) {
+      margin-right: 0; }
+    .flex-wrap.vertical .card:not(last-child) {
+      margin-bottom: 32px; }
+    .flex-wrap.vertical .card:nth-child(2) {
+      flex-grow: 1; }
 
 /* Global */
 body {
@@ -165,25 +211,27 @@ body {
   .chart.red .chart-name {
     color: #F67623; }
 
-/* Layout */
-.flex-wrap {
-  display: flex;
-  flex-wrap: wrap; }
-  .flex-wrap > *:not(last-child) {
-    margin-right: 32px; }
-  .flex-wrap.vertical {
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-between; }
-    .flex-wrap.vertical > *:not(last-child) {
-      margin-right: 0; }
-    .flex-wrap.vertical .card:not(last-child) {
-      margin-bottom: 32px; }
-    .flex-wrap.vertical .card:nth-child(2) {
-      flex-grow: 1; }
-
 /* suggestion list */
 .suggestion-list {
   margin-top: 16px; }
+
+/* Inventory List */
+.category-list:not(last-child) {
+  margin-bottom: 32px; }
+.category-list header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(35, 35, 35, 0.1);
+  margin-bottom: 16px; }
+  .category-list header h4 {
+    font-size: 20px;
+    font-weight: 400; }
+  .category-list header p {
+    font-size: 14px;
+    color: rgba(35, 35, 35, 0.4); }
+.category-list .number {
+  font-size: 20px;
+  color: #20C164; }
 
 /*# sourceMappingURL=style.css.map */
