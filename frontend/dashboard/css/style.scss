@@ -4,7 +4,7 @@ html {
 }
 html, body {
   height: 100%;
-  overflow: hidden;
+//   overflow: hidden;
 }
 * {
     margin: 0;
@@ -123,6 +123,7 @@ $padding: 32px;
     }
 
     &.vertical {
+        flex-wrap: nowrap;
         height: 100%;
         flex-direction: column;
         justify-content: space-between;

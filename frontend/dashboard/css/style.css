@@ -3,8 +3,7 @@ html {
   box-sizing: border-box; }
 
 html, body {
-  height: 100%;
-  overflow: hidden; }
+  height: 100%; }
 
 * {
   margin: 0;
@@ -98,6 +97,7 @@ img {
   .flex-wrap > *:not(last-child) {
     margin-right: 32px; }
   .flex-wrap.vertical {
+    flex-wrap: nowrap;
     height: 100%;
     flex-direction: column;
     justify-content: space-between; }
