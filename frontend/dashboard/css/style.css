@@ -95,8 +95,10 @@ body {
   padding: 32px;
   height: 100%; }
   .main > *:first-child {
-    flex-grow: 1;
+    width: 60%;
     margin-right: 32px; }
+  .main > *:last-child {
+    flex-grow: 1; }
 
 .col-title {
   font-size: 1.25em;
@@ -111,7 +113,7 @@ body {
   padding: 32px; }
   .card .card-header {
     position: relative;
-    margin-bottom: 32px; }
+    margin-bottom: 16px; }
     .card .card-header .btn {
       position: absolute;
       top: 0;
@@ -123,7 +125,7 @@ body {
     font-size: 16px;
     color: rgba(35, 35, 35, 0.4); }
   .card .card-extra {
-    margin-top: 32px;
+    margin-top: 16px;
     background-color: #20C164;
     margin-left: -32px;
     margin-right: -32px;
@@ -138,15 +140,15 @@ body {
 .daily-charts {
   display: flex;
   flex-wrap: wrap; }
-  .daily-charts .chart, .daily-charts .chart-red {
+  .daily-charts .chart {
     width: 50%; }
 
-.chart, .chart-red {
+.chart {
   position: relative;
   text-align: center;
-  margin-top: 32px;
-  margin-bottom: 32px; }
-  .chart .chart-info, .chart-red .chart-info {
+  margin-top: 16px;
+  margin-bottom: 16px; }
+  .chart .chart-info {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -155,14 +157,13 @@ body {
     font-weight: 300;
     color: rgba(35, 35, 35, 0.8);
     line-height: 1; }
-  .chart .chart-name, .chart-red .chart-name {
+  .chart .chart-name {
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
     color: #20C164; }
-
-.chart-red .chart-name {
-  color: #F67623; }
+  .chart.red .chart-name {
+    color: #F67623; }
 
 /* Layout */
 .flex-wrap {
