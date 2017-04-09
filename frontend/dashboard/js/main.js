@@ -235,7 +235,7 @@ addToNuritionView = () => {
             scaleColor: false,
             scaleLength: 0,
             barColor: color,
-            lineWidth: 6,
+            lineWidth: 10,
             lineCap: "round",
             size: getChartWidth()
         });
