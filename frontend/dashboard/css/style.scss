@@ -21,6 +21,15 @@ a {
     text-decoration: none;
 }
 
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
 /****
  * Variables 
  ****/
@@ -40,6 +49,10 @@ $padding: 32px;
 }
 .right {
     float: right;
+}
+.size-thumb {
+    width: 64px;
+    height: auto;
 }
 
 /****
@@ -127,6 +140,7 @@ body {
     // }
     .card-header {
         position: relative;
+        margin-bottom: $padding;
 
         .btn {
             position: absolute;
@@ -151,23 +165,84 @@ body {
         margin-bottom: -$padding;
         padding: $padding;
 
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+
         .card-title {
             color: #fff;
         }
     }
 }
 
-/* Inventory List */
-.flex-vertical-wrap {
-    height: 100%;
+/* Charts */
+.daily-charts {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap;
 
-    .card:not(last-child) {
-        margin-bottom: $padding;
+    .chart, .chart-red {
+        width: 50%;
     }
-    .card:nth-child(2) {
-        flex-grow: 1;
+}
+.chart, .chart-red {
+    position: relative;
+    text-align: center;
+
+    margin-top: $padding;
+    margin-bottom: $padding;
+
+    .chart-info {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-56%);
+        font-size: 36px;
+        font-weight: 300;
+        color: rgba($black, 0.8);
+        line-height: 1;
     }
+    .chart-name {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $green;
+    }
+}
+
+.chart-red {
+    .chart-name {
+        color: $red;
+    }
+}
+
+
+/* Layout */
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+
+    > *:not(last-child) {
+        margin-right: $padding;
+    }
+
+    &.vertical {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+
+        > *:not(last-child) {
+            margin-right: 0;
+        }
+
+        .card:not(last-child) {
+            margin-bottom: $padding;
+        }
+        .card:nth-child(2) {
+            flex-grow: 1;
+        }
+    }
+}
+
+/* suggestion list */
+.suggestion-list {
+    margin-top: $padding / 2;
 }

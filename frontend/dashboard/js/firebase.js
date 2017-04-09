@@ -73,7 +73,7 @@ constructNode = name => {
 
   let newDiv = document.createElement("div");
   let newImg = document.createElement("img");
-  newImg.src = "../pics/" + name + ".png";
+  newImg.src = "../img/" + name + ".png";
   newImg.style.width = "48px";
   newImg.style.height = "48px";
   newDiv.className = "inventory_item";
