@@ -8,12 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +47,7 @@ public class Inventory_Detail extends AppCompatActivity {
     private TextView freshness;
     private TextView addedDate;
     private TextView bestBefore;
-    private ListView nutritionListView;
+
     private LinearLayout nutritionLinearLayout;
 
     FirebaseDatabase db = FirebaseDatabase.getInstance();
@@ -72,7 +70,6 @@ public class Inventory_Detail extends AppCompatActivity {
         freshness = (TextView)findViewById(R.id.freshness);
         addedDate = (TextView)findViewById(R.id.addDate);
         bestBefore = (TextView)findViewById(R.id.bestBefore);
-        nutritionListView = (ListView) findViewById(R.id.nutrition_list_view);
         nutritionLinearLayout = (LinearLayout) findViewById(R.id.nutrition_items_layout);
 
         send_reminder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_shape_emphasis));
@@ -195,13 +192,17 @@ public class Inventory_Detail extends AppCompatActivity {
 
                 // Need to fix relative layout problem!!
                 RelativeLayout rowRelativeLayout = new RelativeLayout(this);
-                RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(
-                        RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams params_value = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT,
                         RelativeLayout.LayoutParams.WRAP_CONTENT
                 );
-                params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-                nutrition_value.setLayoutParams(params1);
+                params_value.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+                params_value.setMargins(20,0,20,0);
+                nutrition_value.setLayoutParams(params_value);
 
+//                RelativeLayout.LayoutParams params_key = (RelativeLayout.LayoutParams)key_textView.getLayoutParams();
+//                params_key.setMargins(8,0,0,8);
+//                key_textView.setLayoutParams(params_key);
                 rowRelativeLayout.addView(key_textView);
                 rowRelativeLayout.addView(nutrition_value);
 
