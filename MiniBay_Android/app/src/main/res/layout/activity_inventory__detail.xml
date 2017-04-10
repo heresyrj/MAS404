@@ -173,7 +173,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
                         android:layout_marginBottom="8dp"
-                        android:text="Per serve (100g)" />
+                        android:text="Weight (mg)" />
                 </RelativeLayout>
 
             </LinearLayout>

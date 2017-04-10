@@ -185,9 +185,9 @@ public class Inventory_Detail extends AppCompatActivity {
                 TextView key_textView = new TextView(this);
                 TextView nutrition_value = new TextView(this);
 
-                key_textView.setText(key);
+                key_textView.setText(this.upperCaseWords(key));
                 key_textView.setTextAppearance(this, R.style.itemCardText);
-                nutrition_value.setText(nutritionMap.get(key) + " mg");
+                nutrition_value.setText(nutritionMap.get(key));
                 nutrition_value.setTextAppearance(this, R.style.nutriCardNum);
 
                 // Need to fix relative layout problem!!
@@ -197,14 +197,19 @@ public class Inventory_Detail extends AppCompatActivity {
                         RelativeLayout.LayoutParams.WRAP_CONTENT
                 );
                 params_value.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-                params_value.setMargins(20,0,20,0);
+//                params_value.setMargins(20,0,20,0);
                 nutrition_value.setLayoutParams(params_value);
 
 //                RelativeLayout.LayoutParams params_key = (RelativeLayout.LayoutParams)key_textView.getLayoutParams();
 //                params_key.setMargins(8,0,0,8);
 //                key_textView.setLayoutParams(params_key);
+
+
                 rowRelativeLayout.addView(key_textView);
                 rowRelativeLayout.addView(nutrition_value);
+                rowRelativeLayout.setPadding(48, 16, 48, 16);
+
+
 
 
                 nutritionLinearLayout.addView(rowRelativeLayout);
@@ -359,5 +364,9 @@ public class Inventory_Detail extends AppCompatActivity {
         });
 
         mydiag.show();
+    }
+
+    public String upperCaseWords(String input){
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 }
