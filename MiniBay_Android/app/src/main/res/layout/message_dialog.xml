@@ -6,9 +6,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/from_to"/>
+        android:padding="10dp"
+        android:id="@+id/from_to"
+        android:text="From: Me \nTo: My Parents"/>
 
     <EditText
+        android:layout_margin="5dp"
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:id="@+id/message_text"/>
@@ -26,8 +30,8 @@
             android:text="CANCEL"
 
             android:padding="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/colorAccent"
             android:layout_alignParentBottom="true"
@@ -42,7 +46,7 @@
             android:text="SEND"
             android:padding="8dp"
             android:layout_marginRight="16dp"
-            android:layout_marginLeft="4dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/colorAccent"
             android:layout_alignParentBottom="true"
