@@ -212,12 +212,12 @@ addToNuritionView = () => {
         },
         {
             name: "Calcium",
-             consumed: 400,
+             consumed: 700,
             recommended: 1000
         },
         {
             name: "Vitamin C",
-             consumed: 65,
+             consumed: 40,
             recommended: 90
         }
     ];
