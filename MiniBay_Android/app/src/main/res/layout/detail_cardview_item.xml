@@ -25,13 +25,13 @@
             android:layout_height="wrap_content"
             android:text="Calcium"/>
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="48dp"
-            app:srcCompat="@drawable/users_icon" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="32dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="48dp"
+        app:srcCompat="@drawable/users_icon" />
 
         <TextView
             android:id="@+id/quota_week"

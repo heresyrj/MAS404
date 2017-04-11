@@ -102,7 +102,7 @@ public class Nutrition extends Fragment {
                     }
                 }
                 for (String key : nutrition_value.keySet()) {
-                    nutrition_title.add(key);
+                    nutrition_title.add(key.substring(0, 1).toUpperCase() + key.substring(1));
                     nutrition_rate.add((nutrition_value.get(key) * 100 / nutrition_quota.get(key)) + "");
                     quota_per_week.add(nutrition_quota.get(key) + "");
                 }

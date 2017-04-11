@@ -4,18 +4,40 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:id="@+id/from_to"
-        android:text="From: Me \nTo: My Parents"/>
+        android:paddingLeft="24dp"
+        android:paddingTop="24dp"
+        android:id="@+id/message_from"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:text="From: Cheryl"/>
+
+    <TextView
+        android:id="@+id/message_to"
+        android:layout_width="match_parent"
+        android:paddingLeft="24dp"
+        android:paddingTop="10dp"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_from"
+        android:text="To: My Parents"
+        android:layout_alignParentStart="true" />
 
     <EditText
-        android:layout_margin="5dp"
-        android:padding="5dp"
+        android:padding="24dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/message_text"/>
+        android:id="@+id/message_text"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/message_to"
+        android:layout_alignParentStart="true" />
 
 
     <LinearLayout

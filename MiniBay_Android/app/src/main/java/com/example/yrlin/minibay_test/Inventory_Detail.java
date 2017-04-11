@@ -328,7 +328,7 @@ public class Inventory_Detail extends AppCompatActivity {
         mydiag.setContentView(R.layout.message_dialog);
         Button button_cancel = (Button) mydiag.findViewById(R.id.dialog_cancel);
         final EditText message = (EditText)mydiag.findViewById(R.id.message_text);
-        message.setText("You may need to buy some "+bundle.get("itemName").toString());
+        message.setText("You may need to buy some " + bundle.get("itemName").toString() + ".");
 
         button_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
