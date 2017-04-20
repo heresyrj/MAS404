@@ -79,6 +79,7 @@ constructLists = (name, info) => {
         if (putout !== null && index !== -1) {
             fruitList.splice(index, 1);
             fruit_count -= count;
+            nutriData[3].consumed += 10;
         }
         
         if (putout === null && index === -1) {
@@ -195,10 +196,7 @@ addToEatSoonView = () => {
 addToRecDishView = () => {
 
 }
-
-//render 4: Nutrition Summary
-addToNuritionView = () => {
-    const data = [
+let nutriData = [
         {
             name: "Energy",
              consumed: 1990,
@@ -220,9 +218,11 @@ addToNuritionView = () => {
             recommended: 90
         }
     ];
-
+//render 4: Nutrition Summary
+addToNutritionView = () => {
+  
     document.getElementById("daily-charts").innerHTML = "";
-    data.forEach(item => {
+    nutriData.forEach(item => {
         let chartItem = document.createElement("div");
         const percentage = (item.consumed / item.recommended).toFixed(2) * 100;
         const innerEl = `<p class="chart-info"><span class="chart-name">${item.name}</span><br>${item.consumed}</p>`;
@@ -265,7 +265,7 @@ render = () => {
   addToListView();
   addToEatSoonView();
 //   addToRecDishView();
-  addToNuritionView();
+  addToNutritionView();
   addToNuritionSuggestionView();
 };
 
