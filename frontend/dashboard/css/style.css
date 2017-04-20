@@ -49,7 +49,7 @@ img {
   text-align: center; }
 
 .red {
-  color: #F67623; }
+  color: #f67623; }
 
 .grey {
   color: rgba(35, 35, 35, 0.4); }
@@ -79,16 +79,16 @@ img {
 .dot {
   position: absolute;
   display: block;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 20px;
+  line-height: 24px;
   padding: 4px;
-  background-color: #20C164;
-  border-radius: 10px;
+  background-color: #20c164;
+  border-radius: 16px;
   text-align: center;
-  min-width: 20px;
+  min-width: 32px;
   color: #fff;
   top: 4px;
-  right: -10px;
+  right: -16px;
   box-shadow: 0 2px 2px rgba(35, 35, 35, 0.2); }
 
 /* Layout */
@@ -123,7 +123,7 @@ body {
   float: left;
   height: 100%;
   width: 15%;
-  max-width: 200px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
@@ -173,7 +173,7 @@ body {
     color: rgba(35, 35, 35, 0.4); }
   .card .card-extra {
     margin-top: 16px;
-    background-color: #20C164;
+    background-color: #20c164;
     margin-left: -32px;
     margin-right: -32px;
     margin-bottom: -32px;
@@ -210,9 +210,9 @@ body {
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #20C164; }
+    color: #20c164; }
   .chart.red .chart-name {
-    color: #F67623; }
+    color: #f67623; }
 
 /* suggestion list */
 .suggestion-list {
@@ -235,6 +235,22 @@ body {
     color: rgba(35, 35, 35, 0.4); }
 .category-list .number {
   font-size: 20px;
-  color: #20C164; }
+  color: #20c164; }
 
-/*# sourceMappingURL=style.css.map */
+#eat-soon-list > li:nth-child(1) img {
+  animation: enhance 10s ease-in-out 3s infinite; }
+#eat-soon-list > li:nth-child(2) img {
+  animation: enhance 10s ease-in-out 6s infinite; }
+#eat-soon-list > li:nth-child(3) img {
+  animation: enhance 10s ease-in-out 9s infinite; }
+
+/* Animation */
+@keyframes enhance {
+  0% {
+    transform: scale(1) rotate(0); }
+
+  5% {
+    transform: scale(1.2) rotate(0); }
+
+  10% {
+    transform: scale(1) rotate(0); } }

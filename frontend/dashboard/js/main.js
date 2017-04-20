@@ -182,7 +182,7 @@ addToEatSoonView = () => {
     data.forEach(item => {
         let soonItem = document.createElement("li");
         const innerEl = `
-            <img src="img/${item.name}.png">
+            <img class="enhance" src="img/${item.name}.png">
             <p class="center ${(item.days <=3)?"red":"grey"}">${item.days} days left</p>
         `;
         soonItem.className = "size-thumb large";
