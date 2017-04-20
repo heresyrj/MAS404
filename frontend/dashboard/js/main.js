@@ -29,6 +29,7 @@ loadJSON("../nutrition.json", (responseText) => {
 firebase.initializeApp(config);
 let database = firebase.database();
 let inventory_ref = database.ref("inventory");
+let reminder_ref = database.ref("reminder");
 
 function parseTime(time) {
     let month = parseInt(time.substring(5, 7));
@@ -43,6 +44,7 @@ function parseTime(time) {
     };
 }
 
+
 // category lists utility
 const fruit_category = ["Apple", "Watermelon", "Banana"];
 const vegie_category = ["Broccoli", "Carrot", "Eggplant"];
@@ -52,25 +54,48 @@ let fruitList = [];
 let vegieList = [];
 let isFruit = name => fruit_category.includes(name);
 let isVegie = name => vegie_category.includes(name);
-constructLists = (name, times) => {
-    let putin = parseTime(times.putinDate);
-    let putout = times.putoutDate !== "No" ? parseTime(times.putoutDate) : null;
-
-    if (putout == null) {
-
-    }
+let getIndexFromList = (name, list) => {
+    let index = -1;
+    list.forEach((o, i)=> {
+        console.log(o.name, name);
+        if(o.name === name) index = i;
+    });
+    return index;
+}
+constructLists = (name, info) => {
+    let count = info.count;
+    let putin = parseTime(info.putinDate);
+    let putout = info.putoutDate !== "No" ? parseTime(info.putoutDate) : null;
 
     let newItem = {
         name: name,
+        count: count,
         putin: putin,
         putout: putout
     };
+
     if (isFruit(name)) {
-        fruit_count++;
-        fruitList.push(newItem);
+        let index = getIndexFromList(name, fruitList);
+        if (putout !== null && index !== -1) {
+            fruitList.splice(index, 1);
+            fruit_count -= count;
+        }
+        
+        if (putout === null && index === -1) {
+            fruit_count += count;
+            fruitList.push(newItem);
+        }        
     } else if (isVegie(name)) {
-        vegie_count++;
-        vegieList.push(newItem);
+        let index = getIndexFromList(name, vegieList);
+        if (putout !== null && index !== -1) {
+            vegieList.splice(index, 1);
+            vegie_count -= count;
+        }
+        
+        if (putout === null && index === -1) {
+            vegie_count += count;
+            vegieList.push(newItem);
+        }       
     }
 };
 constructNode = name => {
@@ -95,70 +120,47 @@ let getChartWidth = () => {
 
 // render 1: Full Inventory List
 addToListView = () => {
-    console.log("hello");
+
     const data = [
         {
             name: "Fruits",
-            list: [
-                {
-                    name: "apple",
-                    quan: 3
-                },
-                {
-                    name: "banana",
-                    quan: 4
-                },
-                {
-                    name: "watermelon",
-                    quan: 1
-                }
-            ]
+            list: fruitList
         },
         {
             name: "Vegatables",
-            list: [
-                {
-                    name: "broccoli",
-                    quan: 2
-                },
-                {
-                    name: "carrot",
-                    quan: 4
-                },
-                {
-                    name: "eggplant",
-                    quan: 1
-                }
-            ]
+            list: vegieList
         }
     ];
-
+    document.getElementById("inventory-list").innerHTML = "";
     data.forEach(category => {
-        let categoryItem = document.createElement("div");
-        let categoryInner = `
-            <header>
-                <h4>${category.name}</h4>
-                <p><span class="number">${category.list.reduce((value, item) => {
-                    return item.quan + value;
-                },0)}</span> items</p>
-            </header>
-            <ul class="flex-wrap">
-                ${
-                    category.list.map(item => {
-                        return `
-                            <li class="size-thumb relative">
-                                <img src="img/${item.name}.png">
-                                <span class="dot">${item.quan}</span>
-                            </li>
-                        `;
-                    }).join("")
-                }
-            </ul>
-        `;
-        categoryItem.className = "category-list";
-        categoryItem.innerHTML = categoryInner;
+        if (category.list.length > 0) {
+            let categoryItem = document.createElement("div");
+            let categoryInner = `
+                <header>
+                    <h4>${category.name}</h4>
+                    <p><span class="number">${category.list.reduce((value, item) => {
+                        return item.count + value;
+                    },0)}</span> items</p>
+                </header>
+                <ul class="flex-wrap">
+                    ${
+                        category.list.map(item => {
+                            return `
+                                <li class="size-thumb relative">
+                                    <img src="img/${item.name}.png">
+                                    <span class="dot">${item.count}</span>
+                                </li>
+                            `;
+                        }).join("")
+                    }
+                </ul>
+            `;
+            categoryItem.className = "category-list";
+            categoryItem.innerHTML = categoryInner;
 
-        document.getElementById("inventory-list").appendChild(categoryItem);
+            document.getElementById("inventory-list").appendChild(categoryItem);
+        }
+        
     });
 };
 
@@ -179,6 +181,7 @@ addToEatSoonView = () => {
         }
     ];
 
+    document.getElementById("eat-soon-list").innerHTML = "";
     data.forEach(item => {
         let soonItem = document.createElement("li");
         const innerEl = `
@@ -222,6 +225,7 @@ addToNuritionView = () => {
         }
     ];
 
+    document.getElementById("daily-charts").innerHTML = "";
     data.forEach(item => {
         let chartItem = document.createElement("div");
         const percentage = (item.consumed / item.recommended).toFixed(2) * 100;
@@ -248,6 +252,7 @@ addToNuritionView = () => {
 addToNuritionSuggestionView = () => {
     const nutriSuggestions = ["apple","banana","broccoli"];
 
+    document.getElementById("suggestion-list").innerHTML = "";
     nutriSuggestions.forEach(item => {
         let nutriItem = document.createElement("li");
         let nutriImg = document.createElement("img");
@@ -268,11 +273,58 @@ render = () => {
   addToNuritionSuggestionView();
 };
 
+getTime = () => {
+    let m_names = ["Jan", "Feb", "Mar", 
+"Apr", "May", "Jun", "Jul", "Aug", "Sep", 
+"Oct", "Nov", "Dec"];
+    let d_names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let curDate = new Date();
+    let html = `<h4 class="main-text" id="cur-time">${(curDate.getHours()<10)?`0${curDate.getHours()}`:curDate.getHours()}:${(curDate.getMinutes()<10)?`0${curDate.getMinutes()}`:curDate.getMinutes()}</h4>
+                <p class="sub-text" id="date-info">${m_names[curDate.getMonth()]} ${curDate.getDate()}<br> ${d_names[curDate.getDay()]}</p>`;
+    
+    $("#time").html(html);
+}
 
+getWeather = (location, woeid) => {
+    let d_names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let curDate = new Date();
+    $.simpleWeather({
+        location: location,
+        woeid: "",
+        unit: 'f',
+        success: (weather) => {
+            html = `
+            <i class="wicon wicon-${weather.code}"></i>
+            <p class="sub-text" id="h-l-temps">${weather.high}&deg;${weather.units.temp} / ${weather.low}&deg;${weather.units.temp}</p>
+                <h4 class="main-text" id="cur-temp">${weather.temp}&deg;${weather.units.temp}</h4>
+                `;
 
+            let forecastHtml = "";
+            for (let i = 0; i < 2; i++) {
+                forecastHtml += `
+                <div class="weather-item">
+                    <i class="wicon wicon-${weather.forecast[i+1].code}"></i>
+                    <p class="sub-text">${weather.forecast[i+1].high}&deg;${weather.units.temp}/${weather.forecast[i+1].low}&deg;${weather.units.temp}<br>${d_names[curDate.getDay()+i+1]}</p>
+                </div>
+                `;
+            }
+
+            $("#temps").html(html);
+            $("#weather-forecast").html(forecastHtml);
+        },
+        error: (error) => {
+            $("#temps").html('<p>'+error+'</p>');
+        }
+    })
+}
+
+setReminder = (msg) => {
+    let html = `<p><i class="icon-bell"></i>  ${msg}</p>`;
+    $("#reminder").html(html);
+}
 
 $(document).ready(function () {
-    inventory_ref.once("value").then(dataSnapshot => {
+    inventory_ref.on("value", dataSnapshot => {
         let list = dataSnapshot.val();
         let names = Object.keys(list);
         names.forEach(
@@ -283,5 +335,29 @@ $(document).ready(function () {
         );
         render();
     });
+
+    reminder_ref.on("value", dataSnapshot => {
+        let reminder = dataSnapshot.val();
+        console.log(reminder.First);
+        setReminder(reminder.First);
+    });
+
+    let location="Atlanta";
+    getWeather(location,"");
+
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                location=`${position.coords.latitude},${position.coords.longitude}`;
+                getWeather(location);
+                setInterval(getWeather(location), 600000);
+            }
+        );
+    } else {
+        setInterval(getWeather(location,""), 600000);
+    }
+    
+    getTime();
+    setInterval(getTime, 60000);
   
 });

@@ -22,12 +22,19 @@
 <body>
     <div class="dashboard clearfix">
         <aside class="sidebar">
+            <span class="mask"></span>
             <div class="app-title">
                 <h1>MiniBay</h1>
             </div>
-            <div class="hero">
-                <img src="img/generalInformation.png" style="width: 100%">
+            <div class="temps" id="temps">
+               
             </div>
+            <div class="time" id="time">
+            </div>
+            <div class="weather-forecast" id="weather-forecast">
+               
+            </div>
+            
         </aside>
         <main class="main">
             <div id="nutrition-report" class="nutrition-report"> 
@@ -52,7 +59,10 @@
             </div>
             <div class="inventory-list">
                 <!--<h2 class="col-title">Inventory List</h2>-->
+                 
                 <div class="flex-wrap vertical">
+                    <div class="card reminder" id="reminder">
+                    </div>
                     <section class="card">
                         <header class="card-header">
                             <h3 class="card-title">Eat Soon</h3>
@@ -84,7 +94,9 @@
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
     <script src="js/jquery.easypiechart.js" type="text/javascript"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"
+    type="text/javascript"></script>
+    
 	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 	<!--<script type="text/javascript" src="js/firebase.js"></script>-->
 
