@@ -194,7 +194,7 @@ img {
   float: right; }
 
 .size-thumb {
-  width: 64px;
+  width: 48px;
   height: auto; }
   .size-thumb.large {
     width: 80px; }
@@ -233,16 +233,16 @@ img {
 .dot {
   position: absolute;
   display: block;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 22px;
   padding: 4px;
   background-color: #20c164;
-  border-radius: 16px;
+  border-radius: 15px;
   text-align: center;
-  min-width: 32px;
+  min-width: 30px;
   color: #fff;
-  top: 4px;
-  right: -16px;
+  top: 2px;
+  right: -15px;
   box-shadow: 0 2px 2px rgba(35, 35, 35, 0.2); }
 
 /* Layout */
@@ -446,6 +446,8 @@ body {
 /* Inventory List */
 .category-list:not(last-child) {
   margin-bottom: 32px; }
+.category-list:last-child {
+  margin-bottom: 0; }
 .category-list header {
   display: flex;
   justify-content: space-between;

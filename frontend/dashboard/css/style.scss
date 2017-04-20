@@ -114,7 +114,7 @@ $padding: 32px;
     float: right;
 }
 .size-thumb {
-    width: 64px;
+    width: 48px;
     height: auto;
 
     &.large {
@@ -161,16 +161,16 @@ $padding: 32px;
  .dot {
      position: absolute;
      display: block;
-     font-size: 20px;
-     line-height: 24px;
+     font-size: 18px;
+     line-height: 22px;
      padding: 4px;
      background-color: $green;
-     border-radius: 16px;
+     border-radius: 15px;
      text-align: center;
-     min-width: 32px;
+     min-width: 30px;
      color: #fff;
-     top: 4px;
-     right: -16px;
+     top: 2px;
+     right: -15px;
      box-shadow: 0 2px 2px rgba($black, 0.2);
  }
 
@@ -441,6 +441,9 @@ body {
 .category-list {
     &:not(last-child) {
         margin-bottom: $padding;
+    }
+    &:last-child{
+        margin-bottom: 0;
     }
     header {
         display: flex;
