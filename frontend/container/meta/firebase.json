@@ -1,9 +1,0 @@
-{
-    "firebase": {
-        "apiKey": "AIzaSyBYQNdY_n-fX8Cu5V2assXqsMq720UxBoc",
-        "authDomain": "mas404-7d518.firebaseapp.com",
-        "databaseURL" : "https://mas404-7d518.firebaseio.com",
-        "storageBucket" : "mas404-7d518.appspot.com",
-        "messagingSenderId" : "908793150078"
-    }
-}
