@@ -147,7 +147,7 @@ addToListView = () => {
                         category.list.map(item => {
                             return `
                                 <li class="size-thumb relative">
-                                    <img src="img/${item.name}.png">
+                                    <img src="img/${item.name.toLowerCase()}.png">
                                     <span class="dot">${item.count}</span>
                                 </li>
                             `;
@@ -168,12 +168,8 @@ addToListView = () => {
 addToEatSoonView = () => {
 	const data = [
         {
-            name: "apple",
+            name: "broccoli",
             days: 3
-        },
-        {
-            name: "banana",
-            days: 5
         },
         {
             name: "eggplant",
@@ -185,7 +181,7 @@ addToEatSoonView = () => {
     data.forEach(item => {
         let soonItem = document.createElement("li");
         const innerEl = `
-            <img class="enhance" src="img/${item.name}.png">
+            <img class="enhance" src="img/${item.name.toLowerCase()}.png">
             <p class="center ${(item.days <=3)?"red":"grey"}">${item.days} days left</p>
         `;
         soonItem.className = "size-thumb large";
