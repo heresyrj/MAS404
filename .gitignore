@@ -1,5 +1,5 @@
 node_modules
-*vscode
+.vscode
 MiniBay_Android/npm-debug.log
 MiniBay_Android/.gradle
 
