@@ -260,7 +260,7 @@ img {
       margin-right: 0; }
     .flex-wrap.vertical .card:not(last-child) {
       margin-bottom: 32px; }
-    .flex-wrap.vertical .card:nth-child(2) {
+    .flex-wrap.vertical .card:nth-child(3) {
       flex-grow: 1; }
 
 /* Global */
