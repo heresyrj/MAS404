@@ -300,7 +300,7 @@ getWeather = (location, woeid) => {
                 forecastHtml += `
                 <div class="weather-item">
                     <i class="wicon wicon-${weather.forecast[i+1].code}"></i>
-                    <p class="sub-text">${weather.forecast[i+1].high}&deg;${weather.units.temp}/${weather.forecast[i+1].low}&deg;${weather.units.temp}<br>${d_names[curDate.getDay()+i+1]}</p>
+                    <p class="sub-text">${weather.forecast[i+1].high}&deg;${weather.units.temp}/${weather.forecast[i+1].low}&deg;${weather.units.temp}<br>${d_names[(curDate.getDay()+i+1)%7]}</p>
                 </div>
                 `;
             }
