@@ -2,7 +2,6 @@
 var Alexa = require("alexa-sdk");
 var https = require("https");
 var capitalize = require('./');
-// var firebase = require('firebase');
 var firebaseHost = 'mas404-7d518.firebaseio.com';
 var appId = 'amzn1.ask.skill.1d9c0a68-4703-42b2-ad2e-d2268bb6484e'; //'amzn1.echo-sdk-ams.app.your-skill-id';
 var fs = require("fs");
@@ -65,9 +64,6 @@ exports.handler = function(event, context, callback) {
 
     var alexa = Alexa.handler(event, context);
     alexa.appId = appId;
-
-
-
     alexa.registerHandlers(newSessionHandlers);
     alexa.execute();
 };
@@ -76,7 +72,7 @@ exports.handler = function(event, context, callback) {
 var newSessionHandlers = {
     'NewSession': function() {
 
-        this.emit(':ask', 'I am Minibay, your smart inventory and nutrition helper.' + ' Try to ask me about your inventory.');
+        this.emit(':ask', 'Hi, I am Minibay.','I am Minibay, your smart inventory and nutrition helper. Try ask me about your inventory.');
     },
     'AMAZON.HelpIntent': function() {
         this.emit(':ask', 'I am Minibay, your smart inventory and nutrition helper.' + ' Try ask me, if you have something.');
@@ -84,22 +80,17 @@ var newSessionHandlers = {
     'AskInventoryIntent': function() {
 
         var today = new Date();
-
-        var itemName = this.event.request.intent.slots.name.value;
+        var itemName = this.event.request.intent.slots.name.value.toString();
         var tempItem = new Item(itemName);
         var msPerDay = 24 * 60 * 60 * 1000;
-        // var bestBefore = tempItem.bestBefore.toDateString();
-
+    
         fbGet("/inventory/" + this.event.request.intent.slots.name.value.toString().charAt(0).toUpperCase() + this.event.request.intent.slots.name.value.toString().slice(1)).then(res => {
             var putoutDate = res.putoutDate;
             var putinDate = new Date(res.putinDate);
-
             var freshness = 5 * (tempItem.durationTime - Math.round((today - putinDate) / msPerDay)) / tempItem.durationTime;
             var remain = Math.round(tempItem.durationTime - (today - putinDate) / msPerDay);
             var daysBefore = Math.round((today - putinDate) / msPerDay);
             var daysAfter = Math.round((today - putinDate - tempItem.durationTime) / msPerDay);
-            // this.emit(':ask', 'Yes,  You bought ' + this.event.request.intent.slots.name.value+ 'on' + putinDate);
-
 
             if (putoutDate == "No") {
 
@@ -138,7 +129,8 @@ var newSessionHandlers = {
     },
     'AskWhenIntent': function() {
 
-        var itemName = this.event.request.intent.slots.name.value;
+        var itemName = this.event.request.intent.slots.name.value.toString();
+
         var tempItem = new Item(itemName);
         var today = new Date();
         var msPerDay = 24 * 60 * 60 * 1000;
@@ -153,9 +145,7 @@ var newSessionHandlers = {
             var daysAfter = Math.round((today - putinDate) / msPerDay) - tempItem.durationTime;
             // this.emit(':ask', 'Yes,  You bought ' + this.event.request.intent.slots.name.value+ 'on' + putinDate);
 
-
             if (putoutDate == "No") {
-                
                 if (freshness > 2) {
 
                     this.emit(':ask', 'You bought ' + itemName + ' ' + daysBefore + ' days ago,' + ' It is still very fresh. ' + 'What else can I help you?');
@@ -174,22 +164,30 @@ var newSessionHandlers = {
 
     'ListInvenotryIntent': function() {
 
-        var contents = fs.readFileSync("test.json");
-        var jsonObject = JSON.parse(contents);
+        // var contents = fs.readFileSync("test.json");
+        // var jsonObject = JSON.parse(contents);
         var array = " ";
         fbGet("/inventory").then(res => {
-
             var keys = Object.keys(res);
+
             for (var i = 0; i < keys.length; i++) {
                 if (res[keys[i]].putoutDate == "No") {
                     var tempName = keys[i].toString().toLowerCase();
-                    if (jsonObject[tempName].category == this.event.request.intent.slots.name.value) {
-                        array = array.concat(keys[i], ",");
-                    }
+                    array = array.concat(keys[i], ",");
                 }
-               
             }
-            this.emit(':ask', 'You have ' + array + ' What else can I help you with?');
+
+            if (array == " ") {
+               
+                this.emit(':ask', 'You have nothing in this category.'+' What else can I help you with?');
+            }
+            else {
+                this.emit(':ask', 'You have ' + array + '. What else can I help you with?');
+            }
+        
+        
+            
+            
         });
 
 
@@ -214,7 +212,6 @@ var newSessionHandlers = {
                         if (daysAfter < minTime) {
                             minTime = daysAfter;
                             suggestedFood = tempName;
-                           
                         }
                     }
                 }
@@ -223,15 +220,24 @@ var newSessionHandlers = {
              this.emit(':ask', 'I would suggest you have ' + suggestedFood + ' Because you need to have it in ' + minTime + ' days before it turns bad. What else can I help you with?');
 
         });
-       
 
 
+    },
+
+    'ReminderIntent': function() {
+        
+        fbGet("/reminder").then(res => {
+            var keys = Object.keys(res);
+           
+             this.emit(':ask', 'You have a reminder from Annie. '+res[keys[0]]+'. What else can I help you with?');
+        });
 
 
     },
     "AMAZON.StopIntent": function() {
         this.emit(':tell', "Ok. I will always be here. Goodbye!");
     },
+
     "AMAZON.CancelIntent": function() {
         this.emit(':tell', "Ok. I will always be here. Goodbye!");
     },
@@ -239,7 +245,7 @@ var newSessionHandlers = {
     'SessionEndedRequest': function() {
         console.log('session ended!');
         //this.attributes['endedSessionCount'] += 1;
-        this.emit(":tell", "I will always be here. Goodbye!");
+        this.emit(":tell", "Goodbye!");
     }
 };
 
@@ -256,5 +262,4 @@ var Item = function(name) {
     var contents = fs.readFileSync("test.json");
     var obj = JSON.parse(contents);
     this.durationTime = obj[name].expireDays;
-
 }
